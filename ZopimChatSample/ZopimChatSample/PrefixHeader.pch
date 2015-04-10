@@ -1,0 +1,36 @@
+/*
+ *
+ *  PrefixHeader.pch
+ *  ZDCChat
+ *
+ *  Created by Zendesk on 28/10/2014.
+ *
+ *  Copyright (c) 2015 Zendesk. All rights reserved.
+ *
+ *  By downloading or using the Zopim Chat SDK, You agree to the Zendesk Terms
+ *  of Service https://www.zendesk.com/company/terms and Application Developer and API License
+ *  Agreement https://www.zendesk.com/company/application-developer-and-api-license-agreement and
+ *  acknowledge that such terms govern Your use of and access to the Chat SDK.
+ *
+ */
+
+#ifndef ZDChatSample_PrefixHeader_pch
+#define ZDChatSample_PrefixHeader_pch
+
+#import <Availability.h>
+
+#ifndef __IPHONE_5_0
+#warning "This project uses features only available in iOS SDK 5.0 and later."
+#endif
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
+#ifndef SYSTEM_VERSION_GREATER_THAN_SEVEN
+#define SYSTEM_VERSION_GREATER_THAN_SEVEN ([[[UIDevice currentDevice] systemVersion] compare:@"7" options:NSNumericSearch] != NSOrderedAscending)
+#endif
+
+#endif
+
+#endif
