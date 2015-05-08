@@ -24,9 +24,7 @@
 #import "ZDUToastStyle.h"
 #import "ZDUToastView.h"
 #import "ZDUViewController.h"
-
-
-#define ZDC_ISIOS7  ([[[UIDevice currentDevice] systemVersion] compare:@"7" options:NSNumericSearch] != NSOrderedAscending)
+#import "ZDUTextView.h"
 
 
 /**
@@ -61,15 +59,7 @@ ZDCUIScreenFrame()
 }
 
 
-/**
- * Get the origin of the supplied view in the window.
- */
-CG_INLINE CGPoint
-ZDCUIOriginInWindow(UIView *view)
-{
-    return [view convertPoint:view.bounds.origin
-                       toView:[UIApplication sharedApplication].keyWindow.rootViewController.view];
-}
+
 
 
 /**
@@ -154,4 +144,42 @@ zdc_on_main_thread_after(dispatch_block_t block, float delay)
 
 
 @end
+
+
+/**
+ * Get the origin of the supplied view in the window.
+ */
+CG_INLINE CGPoint
+ZDCUIOriginInWindow(UIView *view)
+{
+    UIView *superView = view;
+
+    do {
+        superView = superView.superview;
+    } while (superView.superview);
+
+    CGPoint point = [view convertPoint:view.bounds.origin toView:superView];
+
+    if ([ZDUUtil isVersionOrNewer:@(8)]) {
+        return point;
+    }
+
+    CGRect screenBounds = [UIScreen mainScreen].bounds;
+
+    switch ([[UIApplication sharedApplication] statusBarOrientation]) {
+
+        case UIInterfaceOrientationPortraitUpsideDown: {
+            return CGPointMake(screenBounds.size.width - point.x, screenBounds.size.height - point.y);
+        }
+        case UIInterfaceOrientationLandscapeLeft: {
+            return CGPointMake(screenBounds.size.height - point.y, point.x);
+        }
+        case UIInterfaceOrientationLandscapeRight: {
+            return CGPointMake(point.y, screenBounds.size.width - point.x);
+        }
+        default: {
+            return point;
+        }
+    }
+}
 

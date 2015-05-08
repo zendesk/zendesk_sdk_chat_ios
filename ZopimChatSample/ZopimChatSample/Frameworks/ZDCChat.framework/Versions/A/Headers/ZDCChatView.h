@@ -61,6 +61,11 @@ extern NSString * const ZDC_CHATCELL_SYSTEM_TRIGGER;
  */
 @property (nonatomic, strong) ZDCMessageMonitor *messageMonitor;
 
+/**
+ * Background color for this view.
+ */
+@property (nonatomic, strong) UIColor *chatBackgroundColor UI_APPEARANCE_SELECTOR;
+
 
 /**
  * Create a new chat view.

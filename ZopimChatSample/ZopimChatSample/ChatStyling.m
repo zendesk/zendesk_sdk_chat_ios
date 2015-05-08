@@ -81,7 +81,6 @@
     [[ZDCFormCellMessage appearance] setTextFont:[UIFont systemFontOfSize:13.0f]];
     [[ZDCFormCellMessage appearance] setTextColor:[UIColor colorWithWhite:0.2f alpha:1.0f]];
 
-
     ////////////////////////////////////////////////////////////////////////////////////////////////
     // Chat cells
     ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -144,6 +143,25 @@
     [[ZDCTextEntryView appearance] setTextEntryBackgroundColor:[UIColor colorWithWhite:0.945f alpha:1.0f]];
     [[ZDCTextEntryView appearance] setTextEntryBorderColor:[UIColor colorWithWhite:0.831f alpha:1.0f]];
     [[ZDCTextEntryView appearance] setAreaBackgroundColor:[UIColor whiteColor]];
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    // Custom chat background
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
+    // set all view backgrounds transparent
+    //[[ZDCPreChatFormView appearance] setFormBackgroundColor:[UIColor clearColor]];
+    //[[ZDCOfflineMessageView appearance] setFormBackgroundColor:[UIColor clearColor]];
+    //[[ZDCChatView appearance] setChatBackgroundColor:[UIColor clearColor]];
+    //[[ZDCLoadingView appearance] setLoadingBackgroundColor:[UIColor clearColor]];
+    //[[ZDCLoadingErrorView appearance] setErrorBackgroundColor:[UIColor clearColor]];
+
+    // Set the base view background color
+    //[[ZDCChatUI appearance] setChatBackgroundColor:[UIColor colorWithWhite:0.96f alpha:1.0f]];
+
+    // set the base view background image name and anchor
+    //[[ZDCChatUI appearance] setChatBackgroundImage:@"SampleBackground"];
+    //[[ZDCChatUI appearance] setChatBackgroundAnchor:@(ZDCChatBackgroundAnchorCenter)];
 }
 
 

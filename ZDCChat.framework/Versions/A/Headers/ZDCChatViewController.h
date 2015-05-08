@@ -25,7 +25,7 @@
 /**
  * View controller containing the complete chat UI.
  */
-@interface ZDCChatViewController : ZDUViewController <ZDCChatUIController>
+@interface ZDCChatViewController : ZDUViewController <ZDCChatUIController, ZDCInsetProvider>
 
 
 /**

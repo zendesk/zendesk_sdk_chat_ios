@@ -25,12 +25,34 @@
 #import "ZDCChatUIController.h"
 #import "ZDCOfflineMessageView.h"
 
+typedef NS_ENUM(NSUInteger, ZDCChatBackgroundAnchor) {
+
+    /// Anchor the chat background to to top of the visible area
+    ZDCChatBackgroundAnchorCenter           = 0,
+
+    /// Anchor the chat background to the center of the visible area
+    ZDCChatBackgroundAnchorTop              = 1,
+};
+
+
+@protocol ZDCInsetProvider <NSObject>
+
+- (id<UILayoutSupport>) topLayoutGuide;
+
+- (id<UILayoutSupport>) bottomLayoutGuide;
+
+@end
+
 
 /**
  * The principle chat UI component that contains all functional aspects of the chat UI.
  */
 @interface ZDCChatUI : UIView <ZDCVisitorActionDelegate>
 
+/**
+ * Background image view.
+ */
+@property (nonatomic, strong) UIImageView *backgroundImageView;
 
 /**
  * The full screen loading view using during initial connection.
@@ -68,6 +90,11 @@
 @property (nonatomic, assign) ZDCChatUIState state;
 
 /**
+ * The inset provider for layout out the chat UI (probably the parent view controller).
+ */
+@property (nonatomic, weak) id<ZDCInsetProvider> insetProvider;
+
+/**
  * Image for the button shown in the navigation bar for ending a chat.
  */
 @property (nonatomic, strong) NSString *endChatButtonImage UI_APPEARANCE_SELECTOR;
@@ -81,6 +108,21 @@
  * Image for the button shown in the navigation bar for minimizing a chat.
  */
 @property (nonatomic, strong) NSString *backChatButtonImage UI_APPEARANCE_SELECTOR;
+
+/**
+ * The name of the image to be used in the background of the chat views.
+ */
+@property (nonatomic, strong) UIColor *chatBackgroundColor UI_APPEARANCE_SELECTOR;
+
+/**
+ * The name of the image to be used in the background of the chat views.
+ */
+@property (nonatomic, strong) NSString *chatBackgroundImage UI_APPEARANCE_SELECTOR;
+
+/**
+ * Number representation of ZDCChatBackgroundAnchor, defines the anchor point for the background image.
+ */
+@property (nonatomic, strong) NSNumber *chatBackgroundAnchor UI_APPEARANCE_SELECTOR;
 
 
 /**

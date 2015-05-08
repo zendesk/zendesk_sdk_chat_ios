@@ -108,6 +108,7 @@ static const float ZDC_CONTENT_HEIGHT = 410.0f;
 {
     [super viewDidLayoutSubviews];
     _scrollView.contentSize = CGSizeMake(self.contentView.frame.size.width, ZDC_CONTENT_HEIGHT);
+    _scrollView.contentInset = UIEdgeInsetsMake([self topViewOffset], 0.0f, [self bottomViewOffset], 0.0f);
 }
 
 

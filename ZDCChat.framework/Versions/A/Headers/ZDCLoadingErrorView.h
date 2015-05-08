@@ -92,6 +92,11 @@
  */
 @property (nonatomic, strong) NSString *buttonImage UI_APPEARANCE_SELECTOR;
 
+/**
+ * Background color for this view.
+ */
+@property (nonatomic, strong) UIColor *errorBackgroundColor UI_APPEARANCE_SELECTOR;
+
 
 /**
  * New instance for notifying the user that there is no internet connection.

@@ -44,6 +44,11 @@
  */
 @property (nonatomic, strong) UIColor *loadingLabelTextColor UI_APPEARANCE_SELECTOR;
 
+/**
+ * Background color for this view.
+ */
+@property (nonatomic, strong) UIColor *loadingBackgroundColor UI_APPEARANCE_SELECTOR;
+
 
 /**
  * Show the loading view and start the spinner.

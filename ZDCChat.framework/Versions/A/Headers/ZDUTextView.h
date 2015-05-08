@@ -56,5 +56,12 @@
 - (void) scrollToVisibleCaretAnimated:(BOOL)animated;
 
 
+/**
+ * Set the content insets to Zero alignment.
+ * @param testView the text view to update
+ */
++ (void) setZeroInsets:(UITextView*)textView;
+
+
 @end
 
