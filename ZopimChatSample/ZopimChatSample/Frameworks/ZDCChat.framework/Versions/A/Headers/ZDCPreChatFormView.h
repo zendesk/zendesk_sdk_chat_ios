@@ -67,6 +67,11 @@ extern NSString * const ZDC_FORMCELL_MESSAGE;
  */
 @property (nonatomic, strong) NSString *selectedDepartment;
 
+/**
+ * Background color for this view.
+ */
+@property (nonatomic, strong) UIColor *formBackgroundColor UI_APPEARANCE_SELECTOR;
+
 
 /**
  * Create a new instance.

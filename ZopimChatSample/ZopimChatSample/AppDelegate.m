@@ -31,7 +31,7 @@
 
     // apply appearance styling first if you want to customise the look of the chat
     [ChatStyling applyStyling];
-    
+
     // configure account key and pre-chat form
     [ZDCChat configure:^(ZDCConfig *defaults) {
 
@@ -55,11 +55,11 @@
     // remember to switch off debug logging before app store submission!
     [ZDCLog enable:YES];
     [ZDCLog setLogLevel:ZDCLogLevelWarn];
-    
+
     ////////////////////////////////////////////////////////////////////////////////////////////////
     // sample app boiler plate
     ////////////////////////////////////////////////////////////////////////////////////////////////
-    
+
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor colorWithWhite:0.94f alpha:1.0f];
 
@@ -75,7 +75,7 @@
     // make key window
     [self.window makeKeyAndVisible];
 
-    if (SYSTEM_VERSION_GREATER_THAN_SEVEN) {
+    if ([ZDUUtil isVersionOrNewer:@(7)]) {
 
         // status bar
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
@@ -86,6 +86,16 @@
         [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
         [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.91f green:0.16f blue:0.16f alpha:1.0f]];
         [[UINavigationBar appearance] setTitleTextAttributes:navbarAttributes];
+
+        // For translucent nav bars set YES
+        [[UINavigationBar appearance] setTranslucent:NO];
+
+        // For a completely transparent nav bar uncomment this and set 'translucent' above to YES
+        // (you may also want to change the title text and tint colors above since they are white by default)
+        //[[UINavigationBar appearance] setBarStyle:UIBarStyleDefault];
+        //[[UINavigationBar appearance] setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+        //[[UINavigationBar appearance] setShadowImage:[UIImage new]];
+        //[[UINavigationBar appearance] setBackgroundColor:[UIColor clearColor]];
     }
     return YES;
 }

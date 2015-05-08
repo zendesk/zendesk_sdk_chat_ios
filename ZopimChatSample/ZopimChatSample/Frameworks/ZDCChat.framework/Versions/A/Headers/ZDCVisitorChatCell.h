@@ -53,7 +53,7 @@
 /**
  * Label displaying the chat message.
  */
-@property (nonatomic, strong) UILabel *chatMessage;
+@property (nonatomic, strong) UITextView *chatMessage;
 
 /**
  * Chat bubble surrounding the message.
