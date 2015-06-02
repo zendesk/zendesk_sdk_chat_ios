@@ -23,6 +23,12 @@
 extern CGFloat const ZDC_TOAST_DURATION;
 extern CGFloat const ZDC_TOAST_ANIMATION_TIME;
 
+/// Notification that the chat UI was loaded, the sending object of the notification is the ZDCChatUI instance.
+extern NSString * const ZDC_CHAT_UI_DID_LOAD;
+
+/// Notification that the chat UI performed layout, the sending object of the notification is the ZDCChatUI instance.
+extern NSString * const ZDC_CHAT_UI_DID_LAYOUT;
+
 
 @interface ZDCChatConstants : NSObject
 

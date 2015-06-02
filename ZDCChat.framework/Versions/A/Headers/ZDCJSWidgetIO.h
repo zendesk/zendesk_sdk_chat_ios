@@ -23,6 +23,9 @@
 @interface ZDCJSWidgetIO : NSObject <ZDCChatIO>
 
 
+extern NSString * const ZDC_API_ERROR_DOMAIN;
+
+
 /**
  * Reachbility instance used by chat.
  */

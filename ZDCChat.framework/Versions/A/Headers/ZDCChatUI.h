@@ -133,6 +133,12 @@ typedef NS_ENUM(NSUInteger, ZDCChatBackgroundAnchor) {
  */
 - (instancetype) initWithFrame:(CGRect)frame andDelegate:(id<ZDCChatUIController>)delegate;
 
+
+/**
+ * Populate data and start the chat UI listening for events.
+ */
+- (void) activate;
+
 /**
  * Minimise the chat UI, dismiss the keyboard and present the chat overlay.
  */

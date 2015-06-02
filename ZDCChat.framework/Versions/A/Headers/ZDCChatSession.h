@@ -25,6 +25,7 @@
 #import "ZDCConfig.h"
 #import "ZDCSessionConfig.h"
 #import "ZDCVisitorInfo.h"
+#import "ZDCHttpUploadRequest.h"
 
 
 @protocol ZDCChatSession <ZDCWebIODelegate>
@@ -151,6 +152,29 @@
  * @param the message to be sent.
  */
 - (void) sendOfflineMessage:(NSString*)msg;
+
+/**
+ * Send a chat rating. (FEATURE NOT YET ACTIVE)
+ * @param rating the selected rating
+ */
+//- (void) sendChatRating:(ZDCChatRating)rating;
+
+/**
+ * Send a chat rating comment. (FEATURE NOT YET ACTIVE)
+ * @param comment the rating comment
+ */
+//- (void) sendChatRatingComment:(NSString*)comment;
+
+/**
+ * Upload the file at the provided URL. (FEATURE NOT YET ACTIVE)
+ * @param path path to the file on the local filesystem
+ * @param fileName name with which to upload the file
+ * @param fileType extention of the file, e.g. '.jpg'
+ */
+//- (void) uploadFile:(NSString*)path
+//               name:(NSString*)fileName
+//               type:(NSString*)fileType
+//    progressMonitor:(id<ZDCProgressMonitor>)progressMonitor;
 
 
 #pragma mark event observers

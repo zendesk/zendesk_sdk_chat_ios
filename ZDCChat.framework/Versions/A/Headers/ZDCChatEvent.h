@@ -102,6 +102,16 @@ typedef NS_ENUM(NSUInteger, ZDCChatEventType) {
  */
 @property (nonatomic, assign) BOOL leadMessage;
 
+/**
+ * Array of options (radio group).
+ */
+@property (nonatomic, strong) NSMutableArray *options;
+
+/**
+ * The index of the option that the user has selected.
+ */
+@property (nonatomic, assign) NSInteger selectedOptionIndex;
+
 
 @end
 

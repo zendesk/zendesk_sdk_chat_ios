@@ -46,7 +46,7 @@
     // To override the default avatar uncomment and complete the image name
     //[[ZDCChatAvatar appearance] setDefaultAvatar:@"your_avatar_name_here"];
 
-    // Uncomment to disbale visitor data persistence between application runs
+    // Uncomment to disable visitor data persistence between application runs
     //[[ZDCChat instance].session visitorInfo].shouldPersist = NO;
 
     // Uncomment if you don't want open chat sessions to be automatically resumed on application launch
@@ -59,6 +59,8 @@
     ////////////////////////////////////////////////////////////////////////////////////////////////
     // sample app boiler plate
     ////////////////////////////////////////////////////////////////////////////////////////////////
+
+    NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor colorWithWhite:0.94f alpha:1.0f];
@@ -99,6 +101,13 @@
     }
     return YES;
 }
+
+
+void uncaughtExceptionHandler(NSException *exception) {
+    NSLog(@"CRASH: %@", exception);
+    NSLog(@"Stack Trace: %@", [exception callStackSymbols]);
+}
+
 
 
 @end
