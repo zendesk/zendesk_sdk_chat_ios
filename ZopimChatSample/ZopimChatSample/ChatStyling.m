@@ -146,7 +146,7 @@
 
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
-    // Custom chat background
+    // Chat UI background colors
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
     // set all view backgrounds transparent
@@ -159,9 +159,45 @@
     // Set the base view background color
     //[[ZDCChatUI appearance] setChatBackgroundColor:[UIColor colorWithWhite:0.96f alpha:1.0f]];
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    // Custom chat background (static image)
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
     // set the base view background image name and anchor
     //[[ZDCChatUI appearance] setChatBackgroundImage:@"SampleBackground"];
     //[[ZDCChatUI appearance] setChatBackgroundAnchor:@(ZDCChatBackgroundAnchorCenter)];
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    // UI notifications
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chatLoaded:) name:ZDC_CHAT_UI_DID_LOAD object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chatLayout:) name:ZDC_CHAT_UI_DID_LAYOUT object:nil];
+}
+
+
++ (void) chatLoaded:(NSNotification*)notification
+{
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    // Custom chat background (runtime image)
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
+    // Those attributes controllable by UIAppearance should still be controlled via the standard appearance
+    // invocations. For a chat-wide background image to work you will need to also uncomment the background
+    // color apperance settings above
+
+    //ZDCChatUI *chatUI = notification.object;
+
+    //chatUI.chatBackgroundAnchor = @(ZDCChatBackgroundAnchorTop);
+    //chatUI.backgroundImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"SampleBackground"]];
+}
+
+
++ (void) chatLayout:(NSNotification*)notification
+{
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    // Customise the layout of any part of the chat UI here
+    ////////////////////////////////////////////////////////////////////////////////////////////////
 }
 
 

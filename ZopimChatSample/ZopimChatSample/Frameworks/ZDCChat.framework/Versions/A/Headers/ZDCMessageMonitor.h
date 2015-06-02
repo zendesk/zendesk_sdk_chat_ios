@@ -18,18 +18,29 @@
 #import <Foundation/Foundation.h>
 #import "ZDCChatEvent.h"
 #import "ZDCVisitorChatCell.h"
+#import "ZDCAgentOptionsCell.h"
 
 
 /**
  * Tracks all visitor messages for timeouts and handles resend timeouts/actions.
  */
-@interface ZDCMessageMonitor : NSObject <ZDCMessageResendDelegate>
+@interface ZDCMessageMonitor : NSObject <ZDCMessageResendDelegate, ZDCOptionDelegate>
 
 
 /**
  * The current chat message list.
  */
 @property (nonatomic, strong, readonly) NSArray *messages;
+
+/**
+ * Option view cache.
+ */
+@property (nonatomic, strong, readonly) NSMutableArray *optionViews;
+
+/**
+ * Cache for string sizes.
+ */
+@property (nonatomic, strong, readonly) NSMutableDictionary *sizeCache;
 
 /**
  * The table presenting the chat messages.

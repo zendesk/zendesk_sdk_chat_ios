@@ -48,6 +48,34 @@ typedef NS_ENUM(NSUInteger, ZDCConnectionStatus) {
     ZDCConnectionStatusNoConnection      = 5
 };
 
+/**
+ * Chat ratings.
+ */
+typedef NS_ENUM(NSUInteger, ZDCChatRating) {
+
+    /// Good chat rating.
+    ZDCChatRatingGood       = 0,
+
+    /// Bad chat rating.
+    ZDCChatRatingBad        = 1
+};
+
+/**
+ *  Error codes.
+ */
+typedef NS_ENUM(NSInteger, ZDCAPIErrorCodes) {
+
+    /**
+     *  The file upload requests exceed the server limits.
+     */
+    ZDCAPIUploadTooBig,
+
+    /**
+     *  The file type requests is not accepted by the servers.
+     */
+    ZDCAPIFileTypeNotValid
+};
+
 
 /**
  * Protocol for receiving Zopim WebIO messages.
@@ -166,6 +194,29 @@ typedef NS_ENUM(NSUInteger, ZDCConnectionStatus) {
  * @param tags tags to be set on this session
  */
 - (void) sendTags:(NSArray*)tags;
+
+/**
+ * Send a chat rating.
+ * @param rating the selected rating
+ */
+- (void) sendChatRating:(ZDCChatRating)rating;
+
+/**
+ * Send a chat rating comment.
+ * @param comment the rating comment
+ */
+- (void) sendChatRatingComment:(NSString*)comment;
+
+
+/**
+ * Request the upload URL for a file upload.
+ * @param fileName the name of the file to be uploaded
+ * @param fileExtension the file extension e.g. ".jpg"
+ * @param fileSize the size of the file
+ * @param error error pointer that will be populated if there is a problem
+ * @return the upload URL or nil if tyhere was an error
+ */
+- (NSString*) uploadURL:(NSString*)fileName extension:(NSString*)fileExtension size:(NSNumber*)fileSize error:(NSError**)error;
 
 /**
  * End the current chat.
