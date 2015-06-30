@@ -55,6 +55,13 @@ typedef NS_ENUM(NSInteger, ZDCHTTPError) {
 };
 
 
+/**
+ * Block for invocation on completion of a request, either successfully or with error(s).
+ * @param request the request that was completed.
+ */
+typedef void (^ZDCHTTPCompleted) (ZDCHttpRequest *request);
+
+
 #pragma mark -
 
 
@@ -135,8 +142,8 @@ typedef NS_ENUM(NSInteger, ZDCHTTPError) {
 
     @protected
     NSURLConnection *con;
-    void (^success)(ZDCHttpRequest*);
-    void (^error)(ZDCHttpRequest*);
+    ZDCHTTPCompleted success;
+    ZDCHTTPCompleted error;
     NSTimer *progressTimer;
     long bytesReceived;
     long totalBytesToWrite;
@@ -184,7 +191,7 @@ typedef NS_ENUM(NSInteger, ZDCHTTPError) {
  * @param success the block to be executed on success
  * @param error the block to be executed on error
  */
-- (void) execute:(void (^)(ZDCHttpRequest*))success error:(void (^)(ZDCHttpRequest*))error;
+- (void) execute:(ZDCHTTPCompleted)success error:(ZDCHTTPCompleted)error;
 
 /**
  * Set the user agent to be used when making requests, the same user agent is used for all requests.

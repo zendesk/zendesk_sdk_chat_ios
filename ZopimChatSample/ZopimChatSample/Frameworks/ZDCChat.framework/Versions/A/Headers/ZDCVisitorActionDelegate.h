@@ -16,6 +16,7 @@
 
 
 #import <Foundation/Foundation.h>
+#import "ZDCChatEvent.h"
 
 
 /**
@@ -33,6 +34,29 @@
  * Visitor has triggered sending of the current typed message.
  */
 - (void) sendMessage;
+
+/**
+ * View the image from an attachment.
+ * @param the image to view
+ * @param imageView the source UIImageView that contains the image
+ */
+- (void) viewAttachmentImage:(UIImage*)image fromView:(UIImageView*)imageView;
+
+/**
+ * View the non-image attachment document in a web view.
+ */
+- (void) viewDocumentForEvent:(ZDCChatEvent*)event;
+
+/**
+ * Edit the chat rating comment.
+ * @param ratingEvent the chat log event for the rating
+ */
+- (void) editRatingComment:(ZDCChatEvent*)ratingEvent;
+
+/**
+ * Update the chat rating comment.
+ */
+- (void) updateChatRatingComment:(NSString*)newComment;
 
 
 @end

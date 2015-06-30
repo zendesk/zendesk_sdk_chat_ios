@@ -28,7 +28,13 @@ extern CGFloat const ZDC_TEXTENTRY_MINIMUM_HEIGHT;
 /**
  * Text entry button pressed.
  */
-- (void) buttonPressed;
+- (void) sendButtonPressed;
+
+
+/**
+ * Attachment button pressed.
+ */
+- (void) attachButtonPressed;
 
 
 @end
@@ -65,6 +71,11 @@ extern CGFloat const ZDC_TEXTENTRY_MINIMUM_HEIGHT;
 @property (nonatomic, strong) ZDUTextView *textView;
 
 /**
+ * Button for adding attachments.
+ */
+@property (nonatomic, strong) UIButton *attachButton;
+
+/**
  * The send button.
  */
 @property (nonatomic, strong) UIButton *sendButton;
@@ -73,6 +84,11 @@ extern CGFloat const ZDC_TEXTENTRY_MINIMUM_HEIGHT;
  * The send button image.
  */
 @property (nonatomic, strong) NSString *sendButtonImage UI_APPEARANCE_SELECTOR;
+
+/**
+ * The attachments button image.
+ */
+@property (nonatomic, strong) NSString *attachButtonImage UI_APPEARANCE_SELECTOR;
 
 /**
  * Color of border line at top of text entry area.

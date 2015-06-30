@@ -90,23 +90,22 @@
     [[ZDCJoinLeaveCell appearance] setTextColor:[UIColor colorWithWhite:0.26f alpha:1.0f]];
     [[ZDCJoinLeaveCell appearance] setTextFont:[UIFont boldSystemFontOfSize:14]];
 
-    insets = UIEdgeInsetsMake(5.0f, 75.0f , 4.0f, 15.0f);
+    insets = UIEdgeInsetsMake(8.0f, 75.0f , 7.0f, 15.0f);
     [[ZDCVisitorChatCell appearance] setBubbleInsets:[NSValue valueWithUIEdgeInsets:insets]];
     insets = UIEdgeInsetsMake(12.0f, 15.0f, 12.0f, 15.0f);
     [[ZDCVisitorChatCell appearance] setTextInsets:[NSValue valueWithUIEdgeInsets:insets]];
-    [[ZDCVisitorChatCell appearance] setBubbleBorderColor:[UIColor colorWithRed:0.72f green:0.86f blue:0.91f alpha:1.0f]];
-    [[ZDCVisitorChatCell appearance] setBubbleColor:[UIColor colorWithRed:0.85f green:0.94f blue:0.97f alpha:1.0f]];
+    [[ZDCVisitorChatCell appearance] setBubbleBorderColor:[ZDUUtil darkerColorForColor:[ZDUUtil navBarTintColor] by:0.2f]];
+    [[ZDCVisitorChatCell appearance] setBubbleColor:[ZDUUtil navBarTintColor]];
     [[ZDCVisitorChatCell appearance] setBubbleCornerRadius:@(3.0f)];
     [[ZDCVisitorChatCell appearance] setTextAlignment:@(NSTextAlignmentLeft)];
-    [[ZDCVisitorChatCell appearance] setTextColor:[UIColor colorWithWhite:0.26f alpha:1.0f]];
+    [[ZDCVisitorChatCell appearance] setTextColor:[ZDUUtil navTintColor]];
     [[ZDCVisitorChatCell appearance] setTextFont:[UIFont systemFontOfSize:14.0f]];
     [[ZDCVisitorChatCell appearance] setUnsentTextColor:[UIColor colorWithWhite:0.26f alpha:1.0f]];
     [[ZDCVisitorChatCell appearance] setUnsentTextFont:[UIFont systemFontOfSize:12.0f]];
-    [[ZDCVisitorChatCell appearance] setUnsentIconImage:nil];
     [[ZDCVisitorChatCell appearance] setUnsentMessageTopMargin:@(5.0f)];
     [[ZDCVisitorChatCell appearance] setUnsentIconLeftMargin:@(10.0f)];
 
-    insets = UIEdgeInsetsMake(5.0f, 55.0f, 4.0f, 15.0f);
+    insets = UIEdgeInsetsMake(8.0f, 55.0f, 7.0f, 15.0f);
     [[ZDCAgentChatCell appearance] setBubbleInsets:[NSValue valueWithUIEdgeInsets:insets]];
     insets = UIEdgeInsetsMake(12.0f, 15.0f, 12.0f, 15.0f);
     [[ZDCAgentChatCell appearance] setTextInsets:[NSValue valueWithUIEdgeInsets:insets]];
@@ -132,13 +131,26 @@
     [[ZDCChatTimedOutCell appearance] setTextColor:[UIColor colorWithWhite:0.26f alpha:1.0f]];
     [[ZDCChatTimedOutCell appearance] setTextFont:[UIFont boldSystemFontOfSize:14.0f]];
 
+    [[ZDCRatingCell appearance] setTitleColor:[UIColor colorWithWhite:0.26f alpha:1.0f]];
+    [[ZDCRatingCell appearance] setTitleFont:[UIFont boldSystemFontOfSize:14]];
+    [[ZDCRatingCell appearance] setCellToTitleMargin:@(20.0f)];
+    [[ZDCRatingCell appearance] setTitleToButtonsMargin:@(10.0f)];
+    [[ZDCRatingCell appearance] setRatingButtonToCommentMargin:@(20.0f)];
+    [[ZDCRatingCell appearance] setEditCommentButtonHeight:@(44.0f)];
+    [[ZDCRatingCell appearance] setRatingButtonSize:@(40.0f)];
+
+    [[ZDCAgentAttachmentCell appearance] setActivityIndicatorViewStyle:@(UIActivityIndicatorViewStyleGray)];
+
+    [[ZDCVisitorAttachmentCell appearance] setActivityIndicatorViewStyle:@(UIActivityIndicatorViewStyleGray)];
+
+
     ////////////////////////////////////////////////////////////////////////////////////////////////
     // Chat text entry area
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
     [[ZDCTextEntryView appearance] setSendButtonImage:nil];
     [[ZDCTextEntryView appearance] setTopBorderColor:[UIColor colorWithWhite:0.831f alpha:1.0f]];
-    [[ZDCTextEntryView appearance] setTextEntryFont:[UIFont systemFontOfSize:15.0f]];
+    [[ZDCTextEntryView appearance] setTextEntryFont:[UIFont systemFontOfSize:14.0f]];
     [[ZDCTextEntryView appearance] setTextEntryColor:[UIColor colorWithWhite:0.4f alpha:1.0f]];
     [[ZDCTextEntryView appearance] setTextEntryBackgroundColor:[UIColor colorWithWhite:0.945f alpha:1.0f]];
     [[ZDCTextEntryView appearance] setTextEntryBorderColor:[UIColor colorWithWhite:0.831f alpha:1.0f]];

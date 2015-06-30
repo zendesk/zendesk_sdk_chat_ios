@@ -24,17 +24,21 @@
 
 // reuse strings for chat cells
 extern NSString * const ZDC_CHATCELL_AGENT;
+extern NSString * const ZDC_CHATCELL_AGENT_ATTACH;
 extern NSString * const ZDC_CHATCELL_VISITOR;
+extern NSString * const ZDC_CHATCELL_VISITOR_ATTACH;
 extern NSString * const ZDC_CHATCELL_JOINLEAVE;
 extern NSString * const ZDC_CHATCELL_TIMEOUT;
 extern NSString * const ZDC_CHATCELL_TYPING;
 extern NSString * const ZDC_CHATCELL_SYSTEM_TRIGGER;
+extern NSString * const ZDC_CHATCELL_RATING;
+extern NSString * const ZDC_CHATCELL_OPTIONS;
 
 
 /**
  * Chat view containing the chat table view and the test entry area.
  */
-@interface ZDCChatView : UIView <UITableViewDataSource, UITableViewDelegate, UITextViewDelegate, ZDCTextEntryViewDelegate>
+@interface ZDCChatView : UIView <UITableViewDataSource, UITableViewDelegate, UITextViewDelegate, ZDCTextEntryViewDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPopoverControllerDelegate>
 
 /**
  * The visitor action delegate.

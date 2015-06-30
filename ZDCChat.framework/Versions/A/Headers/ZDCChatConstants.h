@@ -18,10 +18,14 @@
 #import "ZDCLog.h"
 
 
-#define ZDC_SDK_VERSION @"0.9.2"
+#define ZDC_SDK_VERSION @"1.0"
+
 
 extern CGFloat const ZDC_TOAST_DURATION;
 extern CGFloat const ZDC_TOAST_ANIMATION_TIME;
+
+#pragma mark notifications
+
 
 /// Notification that the chat UI was loaded, the sending object of the notification is the ZDCChatUI instance.
 extern NSString * const ZDC_CHAT_UI_DID_LOAD;
@@ -29,9 +33,24 @@ extern NSString * const ZDC_CHAT_UI_DID_LOAD;
 /// Notification that the chat UI performed layout, the sending object of the notification is the ZDCChatUI instance.
 extern NSString * const ZDC_CHAT_UI_DID_LAYOUT;
 
+/// Notification of a status change for a file upload.
+extern NSString * const ZDC_NOTIFICATION_FILE_UPLOAD;
 
-@interface ZDCChatConstants : NSObject
+
+#pragma mark mime types
 
 
-@end
+extern NSString * const ZDC_MIME_TYPE_JPEG;
+
+extern NSString * const ZDC_MIME_TYPE_PNG;
+
+extern NSString * const ZDC_MIME_TYPE_PDF;
+
+extern NSString * const ZDC_MIME_TYPE_TXT;
+
+
+#pragma mark -
+
+
+@interface ZDCChatConstants : NSObject @end
 

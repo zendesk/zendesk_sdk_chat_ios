@@ -111,6 +111,12 @@
  */
 - (BOOL) offlineMessagePending;
 
+/**
+ * Set the current chat rating.
+ * @param rating the selected rating
+ */
+- (void) setChatRating:(ZDCChatRating)rating;
+
 
 #pragma mark server input
 
@@ -118,8 +124,15 @@
 /**
  * Process server message.
  * @param message the received message
+ * @param preNotification block for any pre-processing required
  */
-- (void) updateWithMessage:(NSString*)message preNotification:(void(^)(NSString *Path))preNotification;
+- (void) updateWithMessage:(NSString*)message preNotification:(void (^)(NSString *, NSDictionary *))preNotification;
+
+/**
+ * Add a new file upload to the datasource.
+ * @param fileUpload
+ */
+- (void) addFileUpload:(ZDCChatUpload*)fileUpload;
 
 
 #pragma mark event observers
@@ -150,6 +163,19 @@
  * @param target the listener to remove
  */
 - (void) removeObserverForAgentEvents:(id)target;
+
+/**
+ * Listen for upload events, any listener must also remove themselves before deallocation.
+ * @param target the listener to add
+ * @param selector the selector to be invoked on the target
+ */
+- (void) addObserver:(id)target forUploadEvents:(SEL)selector;
+
+/**
+ * Remove upload observers for the target.
+ * @param target the listener to remove
+ */
+- (void) removeObserverForUploadEvents:(id)target;
 
 
 @end

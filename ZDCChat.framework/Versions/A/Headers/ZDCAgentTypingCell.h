@@ -81,16 +81,5 @@
 @property (nonatomic, strong) ZDCChatAvatar *avatar;
 
 
-/**
- * Updated the cell with a list of typing agents.
- * @param agents list of typing agents
- * @param lastEvent the last chat event being shown
- */
-- (void) agentsTyping:(NSArray*)agents lastEvent:(ZDCChatEvent*)lastEvent;
-
-
 @end
-
-
-
 

@@ -67,61 +67,6 @@
 #pragma mark -
 
 
-/**
- * Option delegate for notifying of selection and providing a cache of views.
- */
-@protocol ZDCOptionDelegate <NSObject>
-
-
-/**
- * Notify that an option has been selected.
- * @param event the event for which an option was selected
- * @param index the index of the selected
- */
-- (void) optionSelected:(ZDCChatEvent*)event;
-
-/**
- * Get an option view from the queue, creating new object as necessary.
- * @param option the option string
- * @param index the option index
- * @param radioRadius the radius of the radio button
- * @param borderColor the border color for the option bubble and radio button
- * @param font the option text font
- * @param textColor the option text color
- * @param bubbleCornerRadius the option bubble corner radius
- * @param backgroundColor the bubble background color
- * @return the option view
- */
-- (ZDCOptionView*) dequeueOptionView:(NSString*)option
-                             atIndex:(NSInteger)index
-                         radioRadius:(CGFloat)radioRadius
-                         borderColor:(UIColor*)borderColor
-                                font:(UIFont*)font
-                           textColor:(UIColor*)textColor
-                  bubbleCornerRadius:(CGFloat)bubbleCornerRadius
-                     backgroundColor:(UIColor*)backgroundColor;
-
-/**
- * Return an optin view to the queue;
- */
-- (void) requeueOptionView:(ZDCOptionView*)optionView;
-
-/**
- * String size cache.
- * @param string the string to be sized
- * @param font presentation font
- * @param width the available text width
- * @return the calculated size
- */
-- (CGFloat) sizeOfString:(NSString*)string usingFont:(UIFont*)font forWidth:(CGFloat)width;
-
-
-@end
-
-
-#pragma mark -
-
-
 @interface ZDCAgentOptionsCell : ZDCAgentChatCell
 
 
@@ -129,16 +74,6 @@
  * Array of views which present an option list.
  */
 @property (nonatomic, strong) NSMutableArray *options;
-
-/**
- * Selection delegate.
- */
-@property (nonatomic, weak) id<ZDCOptionDelegate>optionDelegate;
-
-/**
- * Animate the cell to the selected option.
- */
-- (void) animateSelectedOption;
 
 
 @end

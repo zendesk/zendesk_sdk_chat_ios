@@ -16,32 +16,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ZDCChatCell.h"
-
-
-/**
- * Delegate handling resend requests and state.
- */
-@protocol ZDCMessageResendDelegate <NSObject>
-
-
-/*
- * Check if the provided event has timed out and is not in the middle of a resend.
- * @param event the event to be evaluated
- * @return YES if the event should be presented as unsent
- */
-- (BOOL) eventHasTimedOut:(ZDCChatEvent*)event;
-
-/*
- * Request that a message is resent.
- * @param event the event for the message to resend
- */
-- (void) resendMessage:(ZDCChatEvent*)event;
-
-
-@end
-
-
-#pragma mark -
+#import "ZDUTextView.h"
 
 
 /**
@@ -53,7 +28,7 @@
 /**
  * Label displaying the chat message.
  */
-@property (nonatomic, strong) UITextView *chatMessage;
+@property (nonatomic, strong) ZDUTextView *chatMessage;
 
 /**
  * Chat bubble surrounding the message.
@@ -69,16 +44,6 @@
  * If a message is unsent this label is displayed under the message bubble.
  */
 @property (nonatomic, strong) UILabel *unsentMessageLabel;
-
-/**
- * YES if this cell current showing or transitioning to unsent state.
- */
-@property (nonatomic, assign) BOOL unsent;
-
-/**
- * Message resend delegate for checking message timeouts and requesting resend.
- */
-@property (nonatomic, weak) id<ZDCMessageResendDelegate> resendDelegate;
 
 
 #pragma mark appearance
@@ -98,11 +63,6 @@
  * Margin between the bottom of the chat bubble and the top of the unsent message.
  */
 @property (nonatomic, strong) NSNumber *unsentMessageTopMargin UI_APPEARANCE_SELECTOR;
-
-/**
- * Unsent icon image name.
- */
-@property (nonatomic, strong) NSString *unsentIconImage UI_APPEARANCE_SELECTOR;
 
 /**
  * Border color of the chat bubble.
@@ -148,17 +108,6 @@
  * Unsent label font.
  */
 @property (nonatomic, strong) UIFont *unsentTextFont UI_APPEARANCE_SELECTOR;
-
-
-/**
- * Performs the animation from sent to unsent state.
- */
-- (void) animateToUnsent;
-
-/**
- * Performs the animation from unsent to sent state.
- */
-- (void) animateToSent;
 
 
 @end

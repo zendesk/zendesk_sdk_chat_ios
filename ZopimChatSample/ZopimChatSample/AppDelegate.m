@@ -25,6 +25,8 @@
 
 - (BOOL) application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions
 {
+    [self styleApp];
+
     ////////////////////////////////////////////////////////////////////////////////////////////////
     // Chat setup
     ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -77,6 +79,12 @@
     // make key window
     [self.window makeKeyAndVisible];
 
+    return YES;
+}
+
+
+- (void) styleApp
+{
     if ([ZDUUtil isVersionOrNewer:@(7)]) {
 
         // status bar
@@ -86,11 +94,14 @@
         NSDictionary *navbarAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
                                           [UIColor whiteColor] ,UITextAttributeTextColor, nil];
         [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-        [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.91f green:0.16f blue:0.16f alpha:1.0f]];
         [[UINavigationBar appearance] setTitleTextAttributes:navbarAttributes];
+        [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.91f green:0.16f blue:0.16f alpha:1.0f]];
 
-        // For translucent nav bars set YES
-        [[UINavigationBar appearance] setTranslucent:NO];
+        if ([ZDUUtil isVersionOrNewer:@(8)]) {
+
+            // For translucent nav bars set YES
+            [[UINavigationBar appearance] setTranslucent:NO];
+        }
 
         // For a completely transparent nav bar uncomment this and set 'translucent' above to YES
         // (you may also want to change the title text and tint colors above since they are white by default)
@@ -98,14 +109,17 @@
         //[[UINavigationBar appearance] setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
         //[[UINavigationBar appearance] setShadowImage:[UIImage new]];
         //[[UINavigationBar appearance] setBackgroundColor:[UIColor clearColor]];
+
+    } else {
+
+        [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:0.91f green:0.16f blue:0.16f alpha:1.0f]];
     }
-    return YES;
 }
 
 
 void uncaughtExceptionHandler(NSException *exception) {
-    NSLog(@"CRASH: %@", exception);
-    NSLog(@"Stack Trace: %@", [exception callStackSymbols]);
+    [ZDCLog e:@"CRASH: %@", exception];
+    [ZDCLog e:@"Stack Trace: %@", [exception callStackSymbols]];
 }
 
 

@@ -16,6 +16,8 @@
 
 
 #import <Foundation/Foundation.h>
+#import "ZDCChatUpload.h"
+#import "ZDCChatAttachment.h"
 
 
 /**
@@ -42,7 +44,19 @@ typedef NS_ENUM(NSUInteger, ZDCChatEventType) {
     ZDCChatEventTypeAgentMessage       = 5,
     
     /// Chat message from the visitor.
-    ZDCChatEventTypeVisitorMessage     = 6
+    ZDCChatEventTypeVisitorMessage     = 6,
+
+    /// Visitor file upload.
+    ZDCChatEventTypeVisitorUpload      = 7,
+
+    /// Agent file upload.
+    ZDCChatEventTypeAgentUpload        = 8,
+
+    /// Chat rating event.
+    ZDCChatEventTypeRating             = 9,
+
+    /// Chat rating comment event.
+    ZDCChatEventTypeRatingComment     = 10
 };
 
 
@@ -111,6 +125,26 @@ typedef NS_ENUM(NSUInteger, ZDCChatEventType) {
  * The index of the option that the user has selected.
  */
 @property (nonatomic, assign) NSInteger selectedOptionIndex;
+
+/**
+ * If this event represents a file upload this object will be populated.
+ */
+@property (nonatomic, strong) ZDCChatUpload *fileUpload;
+
+/**
+ * The attachment for this event if one exists.
+ */
+@property (nonatomic, strong) ZDCChatAttachment *attachment;
+
+/**
+ * Visitor rating of the current chat.
+ */
+@property (nonatomic, assign) ZDCChatRating rating;
+
+/*
+ * Chat rating comment.
+ */
+@property (nonatomic, strong) NSString *ratingComment;
 
 
 @end

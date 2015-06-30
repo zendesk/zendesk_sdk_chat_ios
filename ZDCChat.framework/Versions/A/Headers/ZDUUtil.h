@@ -100,6 +100,15 @@ zdc_on_main_thread_after(dispatch_block_t block, float delay)
 + (id) appearance:(SEL)sel forView:(UIView*)view;
 
 /**
+ * Get the appearence value for the selector, returning the default if not set.
+ * @param sel the appearance selector to be used
+ * @param defaultVal the default value returned if the appearance has not been set
+ * @param clazz the class for which to request the appearance
+ * @return the apperance value if set, else the default value
+ */
++ (id) appearance:(SEL)sel def:(id)defaultVal forClass:(Class)clazz;
+
+/**
  * Get the height of one screen pixel.
  * @return 1 for non retina, 0.5 for retina
  */
@@ -141,6 +150,31 @@ zdc_on_main_thread_after(dispatch_block_t block, float delay)
  * @return YES if email appears valid
  */
 + (BOOL) emailValid:(NSString*)emailString;
+
+/*
+ * Physically transform an image to match its imageRotation property.
+ * @param image Image to rotate.
+ * @return Correctly rotated image.
+ */
++ (UIImage *)fixOrientationOfImage:(UIImage*)image;
+
+/**
+ * Get a darker copy of the supplied color.
+ * @param c the orifinal color
+ * @param diff the amount to darken by (0 .. 1.0)
+ * @return the darker color
+ */
++ (UIColor *)darkerColorForColor:(UIColor *)c by:(float)diff;
+
+/**
+ * Version safe navigation bar background color.
+ */
++ (UIColor*) navBarTintColor;
+
+/**
+ * Version safe navigation bar item color.
+ */
++ (UIColor*) navTintColor;
 
 
 @end
