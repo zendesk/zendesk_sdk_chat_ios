@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 s.name         = "ZDCChat"
-s.version      = "0.9.3"
-s.summary      = "Zopim SDK 0.9.3"
+s.version      = "1.0"
+s.summary      = "Zopim SDK 1.0"
 s.homepage     = "https://github.com/zendesk/zendesk_sdk_chat_ios"
 s.license      = { 
 :type => 'Copyright', 

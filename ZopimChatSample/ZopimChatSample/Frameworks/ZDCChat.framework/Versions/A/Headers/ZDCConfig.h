@@ -35,15 +35,15 @@
 #pragma mark visitor metadata
 
 /**
- * This string will be placed in the first line of the visitor path.
- * Defaults to the form: "Mobile Chat v{chat_sdk_version}, {device_name} (iOS {os_version})"
+ * This string will be placed in the first line of the visitor path and is equivalent to the 'referrer'.
+ * Defaults to the form: "{app_name}, v{app_version}({build_number})"
  * Must be set before a connection is created if a custom string is required.
  */
 @property (nonatomic, strong) NSString *visitorPathOne;
 
 /**
- * This string will be placed in the second line of the visitor path.
- * Defaults to the form: "{app_name}, v{app_version}({build_number})"
+ * This string will be placed in the second line of the visitor path and is equivalent to the 'title'.
+ * Defaults to the form: "{app_name}"
  * Must be set before a connection is created if a custom string is required.
  */
 @property (nonatomic, strong) NSString *visitorPathTwo;

@@ -67,11 +67,5 @@
 @property (nonatomic, strong) NSNumber *authorHeight UI_APPEARANCE_SELECTOR;
 
 
-/**
- * Invoked by layoutSubviews to perform layout.
- */
-- (void) layout;
-
-
 @end
 

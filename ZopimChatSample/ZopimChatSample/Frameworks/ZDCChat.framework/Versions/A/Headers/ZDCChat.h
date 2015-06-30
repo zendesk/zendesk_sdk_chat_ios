@@ -57,6 +57,13 @@
 #import "ZDCSystemTriggerCell.h"
 #import "ZDCOfflineMessageHandler.h"
 #import "ZDCBundleUtils.h"
+#import "ZDCChatUpload.h"
+#import "ZDCAgentAttachmentCell.h"
+#import "ZDCImageViewer.h"
+#import "ZDCVisitorAttachmentCell.h"
+#import "ZDCWebViewer.h"
+#import "ZDCRatingCell.h"
+#import "ZDCRatingCommentEditor.h"
 
 
 /**

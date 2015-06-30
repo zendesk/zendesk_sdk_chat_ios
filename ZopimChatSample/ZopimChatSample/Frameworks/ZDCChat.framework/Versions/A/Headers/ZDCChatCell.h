@@ -19,6 +19,7 @@
 #import "ZDCChatEvent.h"
 #import "ZDCChatAgent.h"
 #import "ZDUImageLoader.h"
+#import "ZDCChatCellActionDelegate.h"
 
 
 extern CGFloat const ZDC_CHAT_BUBBLE_LEAD_MESSAGE_MARGIN;
@@ -38,6 +39,15 @@ extern CGFloat const ZDC_TYPING_CELL_HEIGHT_WITH_AVATAR;
 extern CGFloat const ZDC_AVATAR_LEFT_INSET;
 extern CGFloat const ZDC_AVATAR_TOP_INSET;
 extern CGFloat const ZDC_AVATAR_HEIGHT;
+extern CGFloat const ZDC_DEFAULT_UNSENT_MSG_TOP_MARGIN;
+extern CGFloat const ZDC_DEFAULT_UNSENT_ICON_LEFT_MARGIN;
+extern NSString * const ZDC_DEFAULT_UNSENT_ICON_IMAGE;
+extern NSString * const ZDC_DEFAULT_BROKEN_FILE_ICON_IMAGE;
+
+
+
+#define ZDC_VISITOR_UNSENT_MESSAGE_FONT [UIFont systemFontOfSize:12]
+#define ZDC_VISITOR_UNSENT_MESSAGE_COLOR [UIColor colorWithWhite:0.58f alpha:1.0f]
 
 
 
@@ -53,9 +63,19 @@ extern CGFloat const ZDC_AVATAR_HEIGHT;
 @property (nonatomic, strong) ZDCChatEvent *event;
 
 /**
+ * YES if this cell current showing or transitioning to an error state.
+ */
+@property (nonatomic, assign) BOOL eventError;
+
+/**
  * The table image loader for avatars.
  */
 @property (nonatomic, strong) ZDUImageLoader *imageLoader;
+
+/**
+ * Message resend delegate for checking message timeouts and requesting resend.
+ */
+@property (nonatomic, weak) id<ZDCChatCellActionDelegate> actionDelegate;
 
 
 /**
@@ -69,6 +89,13 @@ extern CGFloat const ZDC_AVATAR_HEIGHT;
  * @param agent the updated agent info
  */
 - (void) agentUpdate:(ZDCChatAgent*)agent;
+
+/**
+ * Notify the cell that agent(s) are typing.
+ * @param agents list of typing agents
+ * @param lastEvent the last chat event being shown
+ */
+- (void) agentsTyping:(NSArray*)agents lastEvent:(ZDCChatEvent*)lastEvent;
 
 /**
  * Get the cell height.
@@ -90,6 +117,46 @@ extern CGFloat const ZDC_AVATAR_HEIGHT;
  * Set the appearance properties with either specified values or defaults.
  */
 - (void) setupAppearance;
+
+
+#pragma mark layout
+
+/**
+ * Base laout method that decides which layout method to invoke, override to customize layout decisions.
+ */
+- (void) layout;
+
+/**
+ * Layout the event in the standard state, invoked by 'layout' if there is no 'eventError'
+ */
+- (void) layoutForStatusOk;
+
+/**
+ * Layout the event in the error state, invoked by 'layout' if there is an 'eventError'
+ */
+- (void) layoutForStatusError;
+
+/**
+ * Animate this cell from layout 'Ok' to layout 'Error'.
+ */
+- (void) animateToError;
+
+/**
+ * Animate this cell from layout 'Error' to layout 'Ok'.
+ */
+- (void) animateToOk;
+
+/**
+ * Animate a user action in thie cell.
+ */
+- (void) animateUserAction:(NSDictionary*)info;
+
+/**
+ * Helper for getting the image size for presentation.
+ * @param event the attachment event
+ * @param maxSize the max width/height for the image given the current cell
+ */
+- (CGSize) attachmentImageSize:(ZDCChatEvent*)event withMaxSize:(float)maxSize;
 
 
 @end

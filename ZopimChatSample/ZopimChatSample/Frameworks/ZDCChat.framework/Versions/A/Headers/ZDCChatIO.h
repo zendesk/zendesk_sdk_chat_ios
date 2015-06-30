@@ -17,7 +17,6 @@
 
 #import <Foundation/Foundation.h>
 #import "ZDCChatProfile.h"
-#import "ZDCSessionStateManager.h"
 #import "ZDCReachability.h"
 
 
@@ -53,27 +52,17 @@ typedef NS_ENUM(NSUInteger, ZDCConnectionStatus) {
  */
 typedef NS_ENUM(NSUInteger, ZDCChatRating) {
 
+    /// Not yet rated.
+    ZDCChatRatingUnrated    = 0,
+
+    /// No rating.
+    ZDCChatRatingNone       = 1,
+
     /// Good chat rating.
-    ZDCChatRatingGood       = 0,
+    ZDCChatRatingGood       = 2,
 
     /// Bad chat rating.
-    ZDCChatRatingBad        = 1
-};
-
-/**
- *  Error codes.
- */
-typedef NS_ENUM(NSInteger, ZDCAPIErrorCodes) {
-
-    /**
-     *  The file upload requests exceed the server limits.
-     */
-    ZDCAPIUploadTooBig,
-
-    /**
-     *  The file type requests is not accepted by the servers.
-     */
-    ZDCAPIFileTypeNotValid
+    ZDCChatRatingBad        = 3
 };
 
 
@@ -213,10 +202,8 @@ typedef NS_ENUM(NSInteger, ZDCAPIErrorCodes) {
  * @param fileName the name of the file to be uploaded
  * @param fileExtension the file extension e.g. ".jpg"
  * @param fileSize the size of the file
- * @param error error pointer that will be populated if there is a problem
- * @return the upload URL or nil if tyhere was an error
  */
-- (NSString*) uploadURL:(NSString*)fileName extension:(NSString*)fileExtension size:(NSNumber*)fileSize error:(NSError**)error;
+- (void) uploadURL:(NSString*)fileName extension:(NSString*)fileExtension size:(NSNumber*)fileSize;
 
 /**
  * End the current chat.

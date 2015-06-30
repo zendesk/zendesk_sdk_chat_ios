@@ -58,13 +58,6 @@
 - (ZDCChatSessionStatus) status;
 
 /**
- * Set the session timeout which is the amount of time after the last visitor message before the 
- * session is ended due to inactivity.
- * @param timeout the timeout in seconds
- */
-- (void) setTimeout:(NSTimeInterval)timeout;
-
-/**
  * The difference between the device clock and the server clock for the active chat session.
  * Add this to any event timestamp to obtain a time that can be compared to device time.
  */
@@ -154,27 +147,42 @@
 - (void) sendOfflineMessage:(NSString*)msg;
 
 /**
- * Send a chat rating. (FEATURE NOT YET ACTIVE)
+ * Send a chat rating.
  * @param rating the selected rating
  */
-//- (void) sendChatRating:(ZDCChatRating)rating;
+- (void) sendChatRating:(ZDCChatRating)rating;
 
 /**
- * Send a chat rating comment. (FEATURE NOT YET ACTIVE)
+ * Send a chat rating comment.
  * @param comment the rating comment
  */
-//- (void) sendChatRatingComment:(NSString*)comment;
+- (void) sendChatRatingComment:(NSString*)comment;
 
 /**
- * Upload the file at the provided URL. (FEATURE NOT YET ACTIVE)
+ * Upload the file at the provided URL.
  * @param path path to the file on the local filesystem
- * @param fileName name with which to upload the file
- * @param fileType extention of the file, e.g. '.jpg'
+ * @param fileName name with which to upload the file, must include it's extension
  */
-//- (void) uploadFile:(NSString*)path
-//               name:(NSString*)fileName
-//               type:(NSString*)fileType
-//    progressMonitor:(id<ZDCProgressMonitor>)progressMonitor;
+- (void) uploadFileWithPath:(NSString*)path name:(NSString*)fileName;
+
+/**
+ * Upload the file with the provided data.
+ * @param data the file data
+ * @param fileName name with which to upload the file, must include it's extension
+ */
+- (void) uploadFileWithData:(NSData*)data name:(NSString*)fileName;
+
+/**
+ * Upload the the provided image.
+ * @param image the image to be uploaded
+ * @param fileName name with which to upload the file, must include it's extension
+ */
+- (void) uploadImage:(UIImage*)image name:(NSString*)fileName;
+
+/**
+ * Notify the chat session that the visitor is active and the timeouts should be refreshed.
+ */
+- (void) notifyVisitorActive;
 
 
 #pragma mark event observers

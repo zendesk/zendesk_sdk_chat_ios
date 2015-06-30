@@ -23,13 +23,23 @@
 typedef NS_ENUM(NSUInteger, ZDCPreChatDataRequirement) {
 
     /// Data is not required.
-    ZDCPreChatDataNotRequired      = 0,
+    ZDCPreChatDataNotRequired               = 0,
 
     /// Data should be requested if not known but is not required.
-    ZDCPreChatDataOptional         = 1,
+    /// Once this data is known it will not be presented for editing by the user.
+    ZDCPreChatDataOptional                  = 1,
 
     /// Data must be complete to start a chat.
-    ZDCPreChatDataRequired         = 2
+    /// Once this data is known it will not be presented for editing by the user.
+    ZDCPreChatDataRequired                  = 2,
+
+    /// Data should be requested if not known but is not required.
+    /// The user will be offered the opportunity to edit this data each time they start a chat.
+    ZDCPreChatDataOptionalEditable          = 3,
+
+    /// Data must be complete to start a chat.
+    /// The user will be offered the opportunity to edit this data each time they start a chat.
+    ZDCPreChatDataRequiredEditable          = 4
 };
 
 

@@ -20,9 +20,6 @@
 #import "ZDCPreChatData.h"
 
 
-#define ZDC_DEFAULT_CHAT_TIMEOUT 300
-
-
 typedef NS_ENUM(NSUInteger, ZDCChatSessionStatus) {
 
     /// There is no active chat session
@@ -70,11 +67,6 @@ typedef NS_ENUM(NSUInteger, ZDCChatSessionStatus) {
  * Pending messages that have not yet been confirmed by the server.
  */
 @property (nonatomic, strong, readonly) NSMutableArray *pendingMessages;
-
-/**
- * Time in seconds after last visitor interaction before a chat times out.
- */
-@property (nonatomic, assign) NSTimeInterval timeout;
 
 /**
  * The difference between the device clock and the server clock for the active chat session.

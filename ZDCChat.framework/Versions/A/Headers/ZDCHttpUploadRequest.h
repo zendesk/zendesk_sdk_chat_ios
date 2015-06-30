@@ -24,21 +24,29 @@
 @interface ZDCHttpUploadRequest : ZDCHttpRequest {
     
     NSString *fileURL;
+    NSData *fileData;
     NSString *filename;
-    NSString *tempFile;
     NSString *fileContentType;
-    NSMutableDictionary *formVals;
     BOOL fileWritten;
 }
 
 /**
- Initialize the request
- @param url the url for the upload
- @param filename the file to be uploaded
- @param contentType the content type
- @param formVals additional multipart form values (not currently implemented)
+ * Initialize the request.
+ * @param url the url for the upload
+ * @param filename the file to be uploaded
+ * @param contentType the content type
  */
-- (id) initWithFileURL:(NSString*)url filename:(NSString*)filename contentType:(NSString*)contentType formVals:(NSMutableDictionary*)formVals;
+- (id) initWithFileURL:(NSString*)url filename:(NSString*)filename contentType:(NSString*)contentType;
+
+/**
+ * Initialize the request.
+ * @param data the url for the upload
+ * @param filename the file to be uploaded
+ * @param contentType the content type
+ */
+- (id) initWithFileData:(NSData*)data
+               filename:(NSString*)theFilename
+            contentType:(NSString*)contentType;
 
 
 @end

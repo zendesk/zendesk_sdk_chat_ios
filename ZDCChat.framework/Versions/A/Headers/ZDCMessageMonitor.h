@@ -19,12 +19,13 @@
 #import "ZDCChatEvent.h"
 #import "ZDCVisitorChatCell.h"
 #import "ZDCAgentOptionsCell.h"
+#import "ZDCVisitorActionDelegate.h"
 
 
 /**
  * Tracks all visitor messages for timeouts and handles resend timeouts/actions.
  */
-@interface ZDCMessageMonitor : NSObject <ZDCMessageResendDelegate, ZDCOptionDelegate>
+@interface ZDCMessageMonitor : NSObject <ZDCChatCellActionDelegate>
 
 
 /**
@@ -46,6 +47,11 @@
  * The table presenting the chat messages.
  */
 @property (nonatomic, strong) UITableView *table;
+
+/**
+ * Reference to the visitor action delegate.
+ */
+@property (nonatomic, weak) id<ZDCVisitorActionDelegate> actionDelegate;
 
 /**
  * Map of timers currently waiting for message verification.
