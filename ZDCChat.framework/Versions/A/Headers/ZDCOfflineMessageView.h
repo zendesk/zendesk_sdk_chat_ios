@@ -28,7 +28,6 @@
  */
 @property (nonatomic, strong) UITableView *formTable;
 
-
 /**
  * Semi-transparent overlay applied while the offline message is being sent.
  */
@@ -74,20 +73,18 @@
  * Create a new instance.
  * @param frame the frame of the view
  * @param controller the delegate which handles visitor actions within the chat view
+ * @param message any message that the user had already entered into the pre-chat form
  * @return the new instance
  */
-- (instancetype) initWithFrame:(CGRect)frame withController:(id<ZDCVisitorActionDelegate>)controller;
+- (instancetype) initWithFrame:(CGRect)frame
+                withController:(id<ZDCVisitorActionDelegate>)controller
+                    andMessage:(NSString*)message;
 
 /**
  * Check if the form fields have been completed.
  * @return YES if all fields have been completed
  */
 - (BOOL) formComplete;
-
-/**
- * Show toast message asking the visitor to complete all fields.
- */
-- (void) showRequiredToast;
 
 /**
  * Animate to the 'submitting' state.

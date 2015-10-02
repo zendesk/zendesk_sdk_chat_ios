@@ -7,21 +7,45 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		21217BE01B6A2BBB00CD66C5 /* ZDCChatStrings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 21217BDF1B6A2BBB00CD66C5 /* ZDCChatStrings.bundle */; };
 		2124D6C91B258E9E002BC280 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2124D6C81B258E9E002BC280 /* MobileCoreServices.framework */; };
 		21280FF41AB9E97A005F555E /* ZDCChat.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 21280FF21AB9E97A005F555E /* ZDCChat.bundle */; };
-		21280FF61AB9EC42005F555E /* ZDCChatStrings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 21280FF51AB9EC42005F555E /* ZDCChatStrings.bundle */; };
 		21280FFB1ABAB363005F555E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21280FFA1ABAB363005F555E /* Images.xcassets */; };
 		2128100B1ABB6670005F555E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F1F19A6619FE7F8A00B4B49A /* main.m */; };
 		212810151ABB6695005F555E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 212810101ABB6695005F555E /* AppDelegate.m */; };
 		212810161ABB6695005F555E /* ChatStyling.m in Sources */ = {isa = PBXBuildFile; fileRef = 212810121ABB6695005F555E /* ChatStyling.m */; };
 		212810171ABB6695005F555E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 212810141ABB6695005F555E /* ViewController.m */; };
+		212DA2491B44707D00289C59 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 212DA24B1B44707D00289C59 /* Localizable.strings */; };
 		F1E7FCD21A029CED008EB605 /* ZDCChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1E7FCD11A029CED008EB605 /* ZDCChat.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		21217B0A1B5E454200CD66C5 /* bs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bs; path = bs.lproj/Localizable.strings; sourceTree = "<group>"; };
+		21217B0B1B5E455300CD66C5 /* bg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bg; path = bg.lproj/Localizable.strings; sourceTree = "<group>"; };
+		21217B0C1B5E45F100CD66C5 /* hr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hr; path = hr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		21217B0E1B5E461D00CD66C5 /* et */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = et; path = et.lproj/Localizable.strings; sourceTree = "<group>"; };
+		21217B0F1B5E462E00CD66C5 /* fil */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fil; path = fil.lproj/Localizable.strings; sourceTree = "<group>"; };
+		21217B101B5E463F00CD66C5 /* ka */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ka; path = ka.lproj/Localizable.strings; sourceTree = "<group>"; };
+		21217B111B5E464B00CD66C5 /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/Localizable.strings; sourceTree = "<group>"; };
+		21217B121B5E465900CD66C5 /* is */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = is; path = is.lproj/Localizable.strings; sourceTree = "<group>"; };
+		21217B131B5E466300CD66C5 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
+		21217B141B5E467500CD66C5 /* lv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = lv; path = lv.lproj/Localizable.strings; sourceTree = "<group>"; };
+		21217B151B5E468600CD66C5 /* lt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = lt; path = lt.lproj/Localizable.strings; sourceTree = "<group>"; };
+		21217B161B5E46CD00CD66C5 /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/Localizable.strings; sourceTree = "<group>"; };
+		21217B171B5E46E300CD66C5 /* sr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sr; path = sr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		21217B181B5E46EE00CD66C5 /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		21217B191B5E46FD00CD66C5 /* sl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sl; path = sl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		21217B1A1B5E470600CD66C5 /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/Localizable.strings; sourceTree = "<group>"; };
+		21217B1B1B5E471000CD66C5 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		21217B1C1B5E471800CD66C5 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		21217BC61B5E7BED00CD66C5 /* ca */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ca; path = ca.lproj/Localizable.strings; sourceTree = "<group>"; };
+		21217BDD1B692D5300CD66C5 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
+		21217BDE1B6930B100CD66C5 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		21217BDF1B6A2BBB00CD66C5 /* ZDCChatStrings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ZDCChatStrings.bundle; path = ZopimChatSample/Bundles/ZDCChatStrings.bundle; sourceTree = "<group>"; };
+		21217CF11B70B85A00CD66C5 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Localizable.strings; sourceTree = "<group>"; };
+		21217CF61B70BB2400CD66C5 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2124D6C81B258E9E002BC280 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		21280FF21AB9E97A005F555E /* ZDCChat.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ZDCChat.bundle; path = ZopimChatSample/Bundles/ZDCChat.bundle; sourceTree = "<group>"; };
-		21280FF51AB9EC42005F555E /* ZDCChatStrings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ZDCChatStrings.bundle; path = ZopimChatSample/Bundles/ZDCChatStrings.bundle; sourceTree = "<group>"; };
 		21280FFA1ABAB363005F555E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ZopimChatSample/Resources/Images.xcassets; sourceTree = SOURCE_ROOT; };
 		21280FFC1ABAB377005F555E /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PrefixHeader.pch; path = ZopimChatSample/PrefixHeader.pch; sourceTree = SOURCE_ROOT; };
 		2128100F1ABB6695005F555E /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ZopimChatSample/AppDelegate.h; sourceTree = SOURCE_ROOT; };
@@ -30,6 +54,24 @@
 		212810121ABB6695005F555E /* ChatStyling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChatStyling.m; path = ZopimChatSample/ChatStyling.m; sourceTree = SOURCE_ROOT; };
 		212810131ABB6695005F555E /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = ZopimChatSample/ViewController.h; sourceTree = SOURCE_ROOT; };
 		212810141ABB6695005F555E /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = ZopimChatSample/ViewController.m; sourceTree = SOURCE_ROOT; };
+		212DA24A1B44707D00289C59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		212DA24C1B44708000289C59 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		212DA24D1B4470A300289C59 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		212DA24E1B4470AA00289C59 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		212DA24F1B4470AE00289C59 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		212DA2501B4470B600289C59 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		212DA2511B4470BB00289C59 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		212DA2521B4470C400289C59 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		212DA2531B4470CC00289C59 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
+		212DA2541B4470D700289C59 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		212DA2551B4470E800289C59 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		212DA2561B4470F100289C59 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		212DA2571B44715400289C59 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		212DA2591B44716400289C59 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		212DA25A1B44716D00289C59 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
+		212DA25B1B44717300289C59 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		212DA25C1B4471B000289C59 /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-GB"; path = "en-GB.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		212DA25E1B44727100289C59 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F1E7FCD11A029CED008EB605 /* ZDCChat.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZDCChat.framework; path = ZopimChatSample/Frameworks/ZDCChat.framework; sourceTree = "<group>"; };
 		F1F19A6119FE7F8A00B4B49A /* Chat Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chat Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1F19A6519FE7F8A00B4B49A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ZopimChatSample/Info.plist; sourceTree = SOURCE_ROOT; };
@@ -52,7 +94,7 @@
 		21280FCD1AB9DEDC005F555E /* Bundles */ = {
 			isa = PBXGroup;
 			children = (
-				21280FF51AB9EC42005F555E /* ZDCChatStrings.bundle */,
+				21217BDF1B6A2BBB00CD66C5 /* ZDCChatStrings.bundle */,
 				21280FF21AB9E97A005F555E /* ZDCChat.bundle */,
 			);
 			name = Bundles;
@@ -62,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				21280FFA1ABAB363005F555E /* Images.xcassets */,
+				212DA24B1B44707D00289C59 /* Localizable.strings */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -144,7 +187,7 @@
 		F1F19A5919FE7F8A00B4B49A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Zendesk;
 				TargetAttributes = {
 					F1F19A6019FE7F8A00B4B49A = {
@@ -160,6 +203,45 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
+				"zh-Hans",
+				"zh-Hant",
+				de,
+				ja,
+				es,
+				it,
+				fi,
+				ko,
+				nl,
+				pl,
+				ru,
+				sv,
+				tr,
+				"en-GB",
+				da,
+				bs,
+				bg,
+				hr,
+				et,
+				fil,
+				ka,
+				hu,
+				is,
+				id,
+				lv,
+				lt,
+				ro,
+				sr,
+				sk,
+				sl,
+				th,
+				uk,
+				vi,
+				ca,
+				pt,
+				"pt-BR",
+				nb,
+				cs,
 			);
 			mainGroup = F1F19A5819FE7F8A00B4B49A;
 			productRefGroup = F1F19A6219FE7F8A00B4B49A /* Products */;
@@ -176,7 +258,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21280FF61AB9EC42005F555E /* ZDCChatStrings.bundle in Resources */,
+				21217BE01B6A2BBB00CD66C5 /* ZDCChatStrings.bundle in Resources */,
+				212DA2491B44707D00289C59 /* Localizable.strings in Resources */,
 				21280FFB1ABAB363005F555E /* Images.xcassets in Resources */,
 				21280FF41AB9E97A005F555E /* ZDCChat.bundle in Resources */,
 			);
@@ -197,6 +280,58 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		212DA24B1B44707D00289C59 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				212DA24A1B44707D00289C59 /* Base */,
+				212DA24C1B44708000289C59 /* en */,
+				212DA24D1B4470A300289C59 /* fr */,
+				212DA24E1B4470AA00289C59 /* zh-Hans */,
+				212DA24F1B4470AE00289C59 /* zh-Hant */,
+				212DA2501B4470B600289C59 /* de */,
+				212DA2511B4470BB00289C59 /* ja */,
+				212DA2521B4470C400289C59 /* es */,
+				212DA2531B4470CC00289C59 /* it */,
+				212DA2541B4470D700289C59 /* fi */,
+				212DA2551B4470E800289C59 /* ko */,
+				212DA2561B4470F100289C59 /* nl */,
+				212DA2571B44715400289C59 /* pl */,
+				212DA2591B44716400289C59 /* ru */,
+				212DA25A1B44716D00289C59 /* sv */,
+				212DA25B1B44717300289C59 /* tr */,
+				212DA25C1B4471B000289C59 /* en-GB */,
+				212DA25E1B44727100289C59 /* da */,
+				21217B0A1B5E454200CD66C5 /* bs */,
+				21217B0B1B5E455300CD66C5 /* bg */,
+				21217B0C1B5E45F100CD66C5 /* hr */,
+				21217B0E1B5E461D00CD66C5 /* et */,
+				21217B0F1B5E462E00CD66C5 /* fil */,
+				21217B101B5E463F00CD66C5 /* ka */,
+				21217B111B5E464B00CD66C5 /* hu */,
+				21217B121B5E465900CD66C5 /* is */,
+				21217B131B5E466300CD66C5 /* id */,
+				21217B141B5E467500CD66C5 /* lv */,
+				21217B151B5E468600CD66C5 /* lt */,
+				21217B161B5E46CD00CD66C5 /* ro */,
+				21217B171B5E46E300CD66C5 /* sr */,
+				21217B181B5E46EE00CD66C5 /* sk */,
+				21217B191B5E46FD00CD66C5 /* sl */,
+				21217B1A1B5E470600CD66C5 /* th */,
+				21217B1B1B5E471000CD66C5 /* uk */,
+				21217B1C1B5E471800CD66C5 /* vi */,
+				21217BC61B5E7BED00CD66C5 /* ca */,
+				21217BDD1B692D5300CD66C5 /* pt */,
+				21217BDE1B6930B100CD66C5 /* pt-BR */,
+				21217CF11B70B85A00CD66C5 /* nb */,
+				21217CF61B70BB2400CD66C5 /* cs */,
+			);
+			name = Localizable.strings;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		F1716CA81A02C84D002E6897 /* AdHoc */ = {
@@ -249,6 +384,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphonesimulator*]" = "";
+				CODE_SIGN_RESOURCE_RULES_PATH = "$(SDKROOT)/ResourceRules.plist";
 				CONFIGURATION_TEMP_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -258,6 +394,7 @@
 				INFOPLIST_FILE = ZopimChatSample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zopim.chatsample;
 				PRODUCT_NAME = "Chat Sample";
 				PROVISIONING_PROFILE = "";
 			};
@@ -283,6 +420,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -349,6 +487,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphonesimulator*]" = "";
+				CODE_SIGN_RESOURCE_RULES_PATH = "$(SDKROOT)/ResourceRules.plist";
 				CONFIGURATION_TEMP_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -358,6 +497,7 @@
 				INFOPLIST_FILE = ZopimChatSample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zopim.chatsample;
 				PRODUCT_NAME = "Chat Sample";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = NO;
@@ -371,6 +511,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_RESOURCE_RULES_PATH = "$(SDKROOT)/ResourceRules.plist";
 				CONFIGURATION_TEMP_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -380,8 +521,9 @@
 				INFOPLIST_FILE = ZopimChatSample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zopim.chatsample;
 				PRODUCT_NAME = "Chat Sample";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "59d659bb-b252-4b46-9ebb-7025c1b0e43a";
 			};
 			name = Release;
 		};

@@ -22,7 +22,7 @@
 /**
  * Full pane chat rating comment editor.
  */
-@interface ZDCRatingCommentEditor : ZDUViewController
+@interface ZDCRatingCommentEditor : ZDUViewController <UITextViewDelegate>
 
 
 /**

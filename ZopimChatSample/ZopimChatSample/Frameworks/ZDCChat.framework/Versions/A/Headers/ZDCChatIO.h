@@ -18,6 +18,7 @@
 #import <Foundation/Foundation.h>
 #import "ZDCChatProfile.h"
 #import "ZDCReachability.h"
+#import "ZDCEvents.h"
 
 
 @class ZDCVisitorInfo;
@@ -196,7 +197,6 @@ typedef NS_ENUM(NSUInteger, ZDCChatRating) {
  */
 - (void) sendChatRatingComment:(NSString*)comment;
 
-
 /**
  * Request the upload URL for a file upload.
  * @param fileName the name of the file to be uploaded
@@ -217,6 +217,12 @@ typedef NS_ENUM(NSUInteger, ZDCChatRating) {
  * @Param email the visitors email address
  */
 - (void) sendOfflineMessage:(NSString*)message withName:(NSString*)name andEmail:(NSString*)email;
+
+/**
+ * Sends the array of events/breadcrumbs.
+ * @param events an array of ZDCEventEntry objects
+ */
+- (void) sendEvents:(NSArray*)events;
 
 
 #pragma mark event observers

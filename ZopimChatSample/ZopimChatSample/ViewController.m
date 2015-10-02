@@ -114,6 +114,9 @@ static const float ZDC_CONTENT_HEIGHT = 410.0f;
 
 - (void) allPreChatFieldsOptional
 {
+    // track the event
+    [[ZDCChat instance].session trackEvent:@"Chat button pressed: (all fields optional)"];
+
     // start a chat in a new modal
     [ZDCChat startChat:nil];
 }
@@ -121,15 +124,18 @@ static const float ZDC_CONTENT_HEIGHT = 410.0f;
 
 - (void) allPreChatFieldsRequired
 {
+    // track the event
+    [[ZDCChat instance].session trackEvent:@"Chat button pressed: (all fields required)"];
+
     // Start a chat pushed on to the current navigation controller
     // with session config making all pre-chat fields required
     [ZDCChat startChatIn:self.navigationController withConfig:^(ZDCSessionConfig *config) {
         
-        // remove the requirement for a pre-chat message
-        config.preChatDataRequirements.name = ZDCPreChatDataRequired;
-        config.preChatDataRequirements.email = ZDCPreChatDataRequired;
-        config.preChatDataRequirements.phone = ZDCPreChatDataRequired;
-        config.preChatDataRequirements.department = ZDCPreChatDataRequired;
+
+        config.preChatDataRequirements.name = ZDCPreChatDataRequiredEditable;
+        config.preChatDataRequirements.email = ZDCPreChatDataRequiredEditable;
+        config.preChatDataRequirements.phone = ZDCPreChatDataRequiredEditable;
+        config.preChatDataRequirements.department = ZDCPreChatDataRequiredEditable;
         config.preChatDataRequirements.message = ZDCPreChatDataRequired;
     }];
 }
@@ -137,6 +143,9 @@ static const float ZDC_CONTENT_HEIGHT = 410.0f;
 
 - (void) noPreChatForm
 {
+    // track the event
+    [[ZDCChat instance].session trackEvent:@"Chat button pressed: (no pre-chat form)"];
+
     // start a chat pushed on to the current navigation controller
     // with session config setting all pre-chat fields as not required
     [ZDCChat startChatIn:self.navigationController withConfig:^(ZDCSessionConfig *config) {
@@ -152,6 +161,9 @@ static const float ZDC_CONTENT_HEIGHT = 410.0f;
 
 - (void) presetData
 {
+    // track the event
+    [[ZDCChat instance].session trackEvent:@"Chat button pressed: (pre-set data)"];
+
     // before starting the chat set the visitor data
     [ZDCChat updateVisitor:^(ZDCVisitorInfo *visitor) {
 
@@ -177,6 +189,9 @@ static const float ZDC_CONTENT_HEIGHT = 410.0f;
 
 - (void) openModalViewController
 {
+    // track the event
+    [[ZDCChat instance].session trackEvent:@"Modal View Controller opened"];
+
     // simple app navigation simulation
     ViewController *vc = [[ViewController alloc] initWithNibName:nil bundle:nil];
     vc.modal = YES;
@@ -196,6 +211,9 @@ static const float ZDC_CONTENT_HEIGHT = 410.0f;
 
 - (void) pushViewController
 {
+    // track the event
+    [[ZDCChat instance].session trackEvent:@"View Controller pushed"];
+
     // simple app navigation simulation
     ViewController *vc = [[ViewController alloc] initWithNibName:nil bundle:nil];
     vc.nested = YES;

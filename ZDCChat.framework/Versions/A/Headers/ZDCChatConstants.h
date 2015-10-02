@@ -33,6 +33,9 @@ extern NSString * const ZDC_CHAT_UI_DID_LOAD;
 /// Notification that the chat UI performed layout, the sending object of the notification is the ZDCChatUI instance.
 extern NSString * const ZDC_CHAT_UI_DID_LAYOUT;
 
+/// Notification that the chat UI will be unloaded/dismissed (invoked by ZDCChatViewController viewWillBeDismissed).
+extern NSString * const ZDC_CHAT_UI_WILL_UNLOAD;
+
 /// Notification of a status change for a file upload.
 extern NSString * const ZDC_NOTIFICATION_FILE_UPLOAD;
 
@@ -45,6 +48,8 @@ extern NSString * const ZDC_MIME_TYPE_JPEG;
 extern NSString * const ZDC_MIME_TYPE_PNG;
 
 extern NSString * const ZDC_MIME_TYPE_PDF;
+
+extern NSString * const ZDC_MIME_TYPE_GIF;
 
 extern NSString * const ZDC_MIME_TYPE_TXT;
 

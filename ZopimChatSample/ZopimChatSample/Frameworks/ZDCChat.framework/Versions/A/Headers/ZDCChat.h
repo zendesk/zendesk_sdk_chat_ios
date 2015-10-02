@@ -64,6 +64,8 @@
 #import "ZDCWebViewer.h"
 #import "ZDCRatingCell.h"
 #import "ZDCRatingCommentEditor.h"
+#import "ZDCAccountOfflineCell.h"
+#import "ZDCMobileProvisionAnalyzer.h"
 
 
 /**

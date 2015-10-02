@@ -69,6 +69,11 @@ typedef NS_ENUM(NSUInteger, ZDCOverlayAlignment) {
  */
 - (void) activate;
 
+/**
+ * Defines whether the widget will be shown, set to NO if you do not want the chat overlay/widget to be presented.
+ */
+- (void) setEnabled:(BOOL)enabled;
+
 
 @end
 
@@ -81,6 +86,11 @@ typedef NS_ENUM(NSUInteger, ZDCOverlayAlignment) {
  */
 @interface ZDCChatOverlay : UIView <UIGestureRecognizerDelegate, ZDCChatOverlayDelegate>
 
+
+/**
+ * Defines whether the widget will be shown, set to NO if you do not want the chat overlay/widget to be presented.
+ */
+@property (nonatomic, assign) BOOL enabled;
 
 #pragma mark appearance
 

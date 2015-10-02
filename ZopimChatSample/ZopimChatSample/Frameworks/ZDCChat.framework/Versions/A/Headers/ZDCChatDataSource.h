@@ -177,6 +177,19 @@
  */
 - (void) removeObserverForUploadEvents:(id)target;
 
+/**
+ * Listen for account events, any listener must also remove themselves before deallocation.
+ * @param target the listener to add
+ * @param selector the selector to be invoked on the target
+ */
+- (void) addObserver:(id)target forAccountEvents:(SEL)selector;
+
+/**
+ * Remove account observers for the target.
+ * @param target the listener to remove
+ */
+- (void) removeObserverForAccountEvents:(id)target;
+
 
 @end
 

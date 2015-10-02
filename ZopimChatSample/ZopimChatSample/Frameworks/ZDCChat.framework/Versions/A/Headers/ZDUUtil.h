@@ -145,7 +145,7 @@ zdc_on_main_thread_after(dispatch_block_t block, float delay)
 + (BOOL) isiPhone;
 
 /**
- * Very basic regex email check.
+ * Very basic regex email check, does NOT validate length.
  * @param emailString the email to be checked
  * @return YES if email appears valid
  */
