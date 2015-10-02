@@ -71,6 +71,12 @@ typedef NS_ENUM(NSUInteger, ZDCChatUIState) {
  */
 - (void) dismiss;
 
+/**
+ * Set the enabled state of the offline message send button, used during offline message submission.
+ * @param enabled BOOL value to set
+ */
+- (void) enableOfflineMessageSendButton:(BOOL)enabled;
+
 
 #pragma mark state updates
 

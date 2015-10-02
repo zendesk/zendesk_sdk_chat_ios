@@ -25,8 +25,13 @@
  * on the text view sets the font on the placeholder. The placeholder text color
  * is set with the placeholderTextColor property.
  */
-@interface ZDUTextView : UITextView
+@interface ZDUTextView : UIView <UITextViewDelegate>
 
+
+/**
+ * The textview being presented.
+ */
+@property (nonatomic, strong) UITextView *textview;
 
 /**
  * The placeholder text that is shown when there is no text in the text view.
@@ -37,6 +42,11 @@
  * The color of the placeholder that is shown when there is no text in the text view.
  */
 @property (nonatomic, retain) UIColor *placeholderTextColor;
+
+/**
+ * Set the text view delegate.
+ */
+@property (nonatomic, weak) id<UITextViewDelegate> delegate;
 
 
 /**
@@ -50,11 +60,16 @@
 - (instancetype) initWithFrame:(CGRect)frame andPlaceholder:(NSString*)placeholderText;
 
 /**
- * Fix for iOS 7 text view bugs. Scrolls the text view to the caret.
- * @param animated If YES, view animates caret to visible. If NO, view scrolls caret to visible with no animation.
+ * Set the font for both the text view and the placeholder.
+ * @param font the font to set
  */
-- (void) scrollToVisibleCaretAnimated:(BOOL)animated;
+- (void) setFont:(UIFont*)font;
 
+/**
+ * Set the test of the text view.
+ * @param the new text
+ */
+- (void) setText:(NSString *)text;
 
 /**
  * Set the content insets to Zero alignment.

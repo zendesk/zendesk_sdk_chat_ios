@@ -26,14 +26,22 @@
     UIEdgeInsets insets;
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
-    // Loading the chat
+    // Configuring the chat widget/overlay
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //[[ZDCChat instance].overlay setEnabled:NO];
+    [[ZDCChatOverlay appearance] setAlignment:@(ZDCOverlayAlignmentBottomLeft)];
+    [[ZDCChatOverlay appearance] setInsets:[NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(75.0f, 15.0f, 15.0f, 15.0f)]];
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    // Style the chat loading screen
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
     [[ZDCLoadingView appearance] setLoadingLabelFont:[UIFont boldSystemFontOfSize:12.0f]];
     [[ZDCLoadingView appearance] setLoadingLabelTextColor:[UIColor colorWithWhite:0.2f alpha:1.0f]];
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
-    // Loading errors/notifications
+    // Style loading errors/notifications
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
     [[ZDCLoadingErrorView appearance] setIconImage:nil]; // provide an image name to override default image
@@ -48,7 +56,7 @@
     [[ZDCLoadingErrorView appearance] setButtonImage:nil]; // provide an image name to override default image
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
-    // Pre-chat form
+    // Style the pre-chat form
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
     insets = UIEdgeInsetsMake(10.0f, 15.0f, 0.0f, 15.0f);
@@ -82,7 +90,7 @@
     [[ZDCFormCellMessage appearance] setTextColor:[UIColor colorWithWhite:0.2f alpha:1.0f]];
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
-    // Chat cells
+    // Style the chat cells
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
     insets = UIEdgeInsetsMake(10.0f, 70.0f , 10.0f, 20.0f);
@@ -105,7 +113,7 @@
     [[ZDCVisitorChatCell appearance] setUnsentMessageTopMargin:@(5.0f)];
     [[ZDCVisitorChatCell appearance] setUnsentIconLeftMargin:@(10.0f)];
 
-    insets = UIEdgeInsetsMake(8.0f, 55.0f, 7.0f, 15.0f);
+    insets = UIEdgeInsetsMake(8.0f, 55.0f, 7.0f, 30.0f);
     [[ZDCAgentChatCell appearance] setBubbleInsets:[NSValue valueWithUIEdgeInsets:insets]];
     insets = UIEdgeInsetsMake(12.0f, 15.0f, 12.0f, 15.0f);
     [[ZDCAgentChatCell appearance] setTextInsets:[NSValue valueWithUIEdgeInsets:insets]];
@@ -145,7 +153,7 @@
 
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
-    // Chat text entry area
+    // Style the chat text entry area
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
     [[ZDCTextEntryView appearance] setSendButtonImage:nil];
@@ -156,9 +164,10 @@
     [[ZDCTextEntryView appearance] setTextEntryBorderColor:[UIColor colorWithWhite:0.831f alpha:1.0f]];
     [[ZDCTextEntryView appearance] setAreaBackgroundColor:[UIColor whiteColor]];
 
+    [[ZDCChatOverlay appearance] setAlignment:@(ZDCOverlayAlignmentTopLeft)];
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
-    // Chat UI background colors
+    // Style the chat UI background colors
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
     // set all view backgrounds transparent
@@ -185,13 +194,14 @@
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chatLoaded:) name:ZDC_CHAT_UI_DID_LOAD object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chatLayout:) name:ZDC_CHAT_UI_DID_LAYOUT object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chatUnloaded:) name:ZDC_CHAT_UI_WILL_UNLOAD object:nil];
 }
 
 
 + (void) chatLoaded:(NSNotification*)notification
 {
     ////////////////////////////////////////////////////////////////////////////////////////////////
-    // Custom chat background (runtime image)
+    // Set a custom chat background (runtime image)
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
     // Those attributes controllable by UIAppearance should still be controlled via the standard appearance
@@ -208,8 +218,20 @@
 + (void) chatLayout:(NSNotification*)notification
 {
     ////////////////////////////////////////////////////////////////////////////////////////////////
-    // Customise the layout of any part of the chat UI here
+    // Customise the layout of any part of the chat UI here, this notification is received after
+    // the standard/appearance configured layout has been applied
     ////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //ZDCChatUI *chatUI = notification.object;
+    //chatUI.loadingView...
+    //chatUI.formView...
+    //chatUI.chatView...
+}
+
+
++ (void) chatUnloaded:(NSNotification*)notification
+{
+    // The Chat UI has been dismissed
 }
 
 

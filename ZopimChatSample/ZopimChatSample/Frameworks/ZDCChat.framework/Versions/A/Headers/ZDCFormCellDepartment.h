@@ -57,6 +57,11 @@
  */
 @property (nonatomic, strong) ZDCTriangleView *icon;
 
+/**
+ * The action sheet diaplaying the department list.
+ */
+@property (nonatomic, strong) UIActionSheet *actionSheet;
+
 
 @end
 

@@ -38,10 +38,10 @@
     [ZDCChat configure:^(ZDCConfig *defaults) {
 
         defaults.accountKey = @"your account key here";
-        defaults.preChatDataRequirements.name = ZDCPreChatDataOptional;
-        defaults.preChatDataRequirements.email = ZDCPreChatDataOptional;
-        defaults.preChatDataRequirements.phone = ZDCPreChatDataOptional;
-        defaults.preChatDataRequirements.department = ZDCPreChatDataOptional;
+        defaults.preChatDataRequirements.name = ZDCPreChatDataOptionalEditable;
+        defaults.preChatDataRequirements.email = ZDCPreChatDataOptionalEditable;
+        defaults.preChatDataRequirements.phone = ZDCPreChatDataOptionalEditable;
+        defaults.preChatDataRequirements.department = ZDCPreChatDataOptionalEditable;
         defaults.preChatDataRequirements.message = ZDCPreChatDataOptional;
     }];
 

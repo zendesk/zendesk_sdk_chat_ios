@@ -19,6 +19,7 @@
 #import "ZDCVisitorActionDelegate.h"
 #import "ZDUUtil.h"
 #import "ZDCFormCell.h"
+#import "ZDCPreChatData.h"
 
 
 extern NSString * const ZDC_FORMCELL_SINGLELINE;
@@ -92,6 +93,19 @@ extern NSString * const ZDC_FORMCELL_MESSAGE;
  * @return YES if all fields have been completed as per the active form configuration
  */
 - (BOOL) formComplete;
+
+/**
+ * Check the completion and validity of the specified data. Verifies whether the type is required, complete and valid.
+ * @param the data type to be checked
+ * @param currentValue the value to be checked
+ * @param rows the rows being presented for entry
+ * @param requirement the requirement for the data
+ * @return the status of that type
+ */
++ (ZDCFormDataStatus) fieldValid:(ZDCFormCellType)type
+                           value:(NSString*)currentValue
+                        formRows:(NSArray*)rows
+                     requirement:(ZDCPreChatDataRequirement)requirement;
 
 /**
  * Register a class (instance of ZDCFormCell) for use in creating and sizing chat cells.

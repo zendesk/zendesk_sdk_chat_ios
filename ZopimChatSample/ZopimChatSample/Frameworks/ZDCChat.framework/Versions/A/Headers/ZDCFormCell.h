@@ -41,6 +41,19 @@ typedef NS_ENUM(NSUInteger, ZDCFormCellType) {
 };
 
 
+typedef NS_ENUM(NSUInteger, ZDCFormDataStatus) {
+
+    /// The data has been completed
+    ZDCFormDataOk               = 0,
+
+    /// The data has not been entered
+    ZDCFormDataIncomplete       = 1,
+
+    /// The data is invalid
+    ZDCFormDataInvalid          = 2
+};
+
+
 #pragma mark -
 
 
@@ -114,6 +127,11 @@ typedef NS_ENUM(NSUInteger, ZDCFormCellType) {
 @property (nonatomic, strong) UIColor *textFrameBorderColor UI_APPEARANCE_SELECTOR;
 
 /**
+ * Border color for the text view frame when highlighted as invalid/imcomplete.
+ */
+@property (nonatomic, strong) UIColor *textFrameErrorBorderColor UI_APPEARANCE_SELECTOR;
+
+/**
  * Background color for the text view frame.
  */
 @property (nonatomic, strong) UIColor *textFrameBackgroundColor UI_APPEARANCE_SELECTOR;
@@ -137,8 +155,14 @@ typedef NS_ENUM(NSUInteger, ZDCFormCellType) {
 /**
  * Prepare for use with the current text for the cell.
  * @param text the form cell text
+ * @param type the ZDCFormCellType type
+ * @param delegate the form cell delegate
+ * @param highlight if YES then border is changed to error highlight color
  */
-- (void) prepareWithText:(NSString*)text forType:(ZDCFormCellType)type withDelegate:(id<ZDCFormCellDelegate>)delegate;
+- (void) prepareWithText:(NSString*)text
+                 forType:(ZDCFormCellType)type
+            withDelegate:(id<ZDCFormCellDelegate>)delegate
+          highlightError:(BOOL)highlight;
 
 /**
  * Get the cell height.

@@ -121,10 +121,10 @@ typedef NS_ENUM(NSUInteger, ZDCTransferError) {
 + (NSString *) mimeTypeForData:(NSData*)data andFileExtension:(NSString*)fileExtension;
 
 /**
- * Check if this attachment is an image.
+ * Check if this attachment is an image that can be displayed directly.
  * @return YES if the attachment is an image
  */
-- (BOOL) isImage;
+- (BOOL) isPresentableImage;
 
 
 @end

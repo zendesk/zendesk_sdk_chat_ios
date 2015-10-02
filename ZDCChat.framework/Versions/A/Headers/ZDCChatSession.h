@@ -185,6 +185,25 @@
 - (void) notifyVisitorActive;
 
 
+/**
+ * Add an event to the tracked list.
+ *
+ * @param event the event string to be added
+ * @return the created event entry
+ */
+- (void) trackEvent:(NSString*)event;
+
+/**
+ * Add an event to the tracked list.
+ *
+ * @param event the event string to be added
+ * @param url the app URL corresponding to this event
+ * @return the created event entry
+ */
+// Reserved for future use.
+//- (void) trackEvent:(NSString*)event withURL:(NSString*)url;
+
+
 #pragma mark event observers
 
 
