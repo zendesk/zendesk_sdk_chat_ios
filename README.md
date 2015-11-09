@@ -17,7 +17,7 @@ You can also reference this repository as a cocoapod:
 ````
 source 'https://github.com/zendesk/Specs.git'
 
-pod 'ZendeskSDK'
+pod 'ZDCChat'
 
 ````
 
