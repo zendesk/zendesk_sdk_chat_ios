@@ -137,6 +137,11 @@ typedef void (^ZDCSessionConfigBlock) (ZDCSessionConfig *config);
  */
 @property (nonatomic, assign) BOOL shouldResumeOnLaunch;
 
+/**
+ * Sets the parameter by the same name on the chat view controller when it is pushed onto an existing view controller.
+ */
+@property (nonatomic, assign) BOOL hidesBottomBarWhenPushed;
+
 
 /**
  * Singleton instance of the ZDCChat component.
