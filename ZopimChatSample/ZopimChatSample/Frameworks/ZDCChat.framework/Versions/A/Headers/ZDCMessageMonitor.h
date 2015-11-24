@@ -78,6 +78,11 @@
  */
 - (void) resendMessage:(ZDCChatEvent*)event;
 
+/**
+ * The UI is being closed, stop monitoring timeouts.
+ */
+- (void) stopMonitoring;
+
 
 @end
 

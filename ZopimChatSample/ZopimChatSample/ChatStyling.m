@@ -29,8 +29,13 @@
     // Configuring the chat widget/overlay
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
-    //[[ZDCChat instance].overlay setEnabled:NO];
+    [[ZDCChat instance].overlay setEnabled:YES];
     [[ZDCChatOverlay appearance] setAlignment:@(ZDCOverlayAlignmentBottomLeft)];
+    [[ZDCChatOverlay appearance] setMessageCountColor:[UIColor redColor]];
+    [[ZDCChatOverlay appearance] setTypingIndicatorColor:[UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:0.5f]];
+    [[ZDCChatOverlay appearance] setTypingIndicatorHighlightColor:[UIColor redColor]];
+    [[ZDCChatOverlay appearance] setTypingIndicatorDiameter:@(4.0f)];
+    [[ZDCChatOverlay appearance] setMessageCountFont:[UIFont systemFontOfSize:15.0f]];
     [[ZDCChatOverlay appearance] setInsets:[NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(75.0f, 15.0f, 15.0f, 15.0f)]];
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -163,8 +168,6 @@
     [[ZDCTextEntryView appearance] setTextEntryBackgroundColor:[UIColor colorWithWhite:0.945f alpha:1.0f]];
     [[ZDCTextEntryView appearance] setTextEntryBorderColor:[UIColor colorWithWhite:0.831f alpha:1.0f]];
     [[ZDCTextEntryView appearance] setAreaBackgroundColor:[UIColor whiteColor]];
-
-    [[ZDCChatOverlay appearance] setAlignment:@(ZDCOverlayAlignmentTopLeft)];
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
     // Style the chat UI background colors
