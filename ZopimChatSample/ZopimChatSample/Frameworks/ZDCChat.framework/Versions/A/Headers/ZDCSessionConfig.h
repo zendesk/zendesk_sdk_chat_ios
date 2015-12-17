@@ -18,6 +18,7 @@
 #import <Foundation/Foundation.h>
 #import "ZDCPreChatData.h"
 #import "ZDCChatIO.h"
+#import "ZDCEmailTranscriptAction.h"
 
 
 /**
@@ -41,6 +42,10 @@
  */
 @property (nonatomic, strong) NSArray *tags;
 
+/**
+ *  Email transcript action, defaults to ZDCEmailTranscriptActionPrompt.
+ */
+@property (nonatomic, assign) ZDCEmailTranscriptAction emailTranscriptAction;
 
 /**
  * New instance initialised with the provided chat IO.

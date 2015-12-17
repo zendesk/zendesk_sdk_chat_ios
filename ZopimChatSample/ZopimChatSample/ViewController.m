@@ -155,6 +155,7 @@ static const float ZDC_CONTENT_HEIGHT = 410.0f;
         config.preChatDataRequirements.phone = ZDCPreChatDataNotRequired;
         config.preChatDataRequirements.department = ZDCPreChatDataNotRequired;
         config.preChatDataRequirements.message = ZDCPreChatDataNotRequired;
+        config.emailTranscriptAction = ZDCEmailTranscriptActionNeverSend;
     }];
 }
 

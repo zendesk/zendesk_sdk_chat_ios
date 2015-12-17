@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		21217BE01B6A2BBB00CD66C5 /* ZDCChatStrings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 21217BDF1B6A2BBB00CD66C5 /* ZDCChatStrings.bundle */; };
-		2124D6C91B258E9E002BC280 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2124D6C81B258E9E002BC280 /* MobileCoreServices.framework */; };
 		21280FF41AB9E97A005F555E /* ZDCChat.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 21280FF21AB9E97A005F555E /* ZDCChat.bundle */; };
 		21280FFB1ABAB363005F555E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21280FFA1ABAB363005F555E /* Images.xcassets */; };
 		2128100B1ABB6670005F555E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F1F19A6619FE7F8A00B4B49A /* main.m */; };
@@ -16,7 +15,8 @@
 		212810161ABB6695005F555E /* ChatStyling.m in Sources */ = {isa = PBXBuildFile; fileRef = 212810121ABB6695005F555E /* ChatStyling.m */; };
 		212810171ABB6695005F555E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 212810141ABB6695005F555E /* ViewController.m */; };
 		212DA2491B44707D00289C59 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 212DA24B1B44707D00289C59 /* Localizable.strings */; };
-		F1E7FCD21A029CED008EB605 /* ZDCChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1E7FCD11A029CED008EB605 /* ZDCChat.framework */; };
+		D7887CF41C16073600994A5C /* ZDCChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1E7FCD11A029CED008EB605 /* ZDCChat.framework */; };
+		D7887CF71C160E6B00994A5C /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2124D6C81B258E9E002BC280 /* MobileCoreServices.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,8 +83,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2124D6C91B258E9E002BC280 /* MobileCoreServices.framework in Frameworks */,
-				F1E7FCD21A029CED008EB605 /* ZDCChat.framework in Frameworks */,
+				D7887CF71C160E6B00994A5C /* MobileCoreServices.framework in Frameworks */,
+				D7887CF41C16073600994A5C /* ZDCChat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
