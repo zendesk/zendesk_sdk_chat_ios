@@ -1,14 +1,14 @@
 Pod::Spec.new do |s|
     s.name         = "ZDCChat"
-    s.version      = "1.1.3"
-    s.summary      = "Zopim SDK 1.1.3"
+    s.version      = "1.2.0.1"
+    s.summary      = "Zopim SDK 1.2.0.1"
     s.homepage     = "https://github.com/zendesk/zendesk_sdk_chat_ios"
-    s.license      = { 
-    :type => 'Copyright', 
-    :text => <<-LICENSE 
+    s.license      = {
+    :type => 'Copyright',
+    :text => <<-LICENSE
         ZDCChat
 
-        Created by Zendesk on 25/03/2015.  
+        Created by Zendesk on 25/03/2015.
 
         Copyright (c) 2015 Zendesk. All rights reserved.
 
@@ -30,6 +30,7 @@ Pod::Spec.new do |s|
         ss.public_header_files = 'ZDCChat.framework/**/*.h'
         ss.ios.vendored_frameworks = 'ZDCChat.framework'
         ss.preserve_paths = 'ZDCChat.framework'
+        ss.frameworks = 'MobileCoreServices', 'SystemConfiguration'
         ss.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '$(inherited)', 'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES' }
         ss.resources = ["ZDCChat.bundle"]
     end

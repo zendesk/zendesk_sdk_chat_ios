@@ -51,7 +51,8 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F1F19A6019FE7F8A00B4B49A"
@@ -59,7 +60,7 @@
             BlueprintName = "Chat Sample"
             ReferencedContainer = "container:ZopimChatSample.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
          <AdditionalOption
             key = "NSZombieEnabled"
