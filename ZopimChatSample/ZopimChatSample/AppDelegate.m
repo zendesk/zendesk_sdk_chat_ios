@@ -43,10 +43,8 @@
         defaults.preChatDataRequirements.phone = ZDCPreChatDataOptionalEditable;
         defaults.preChatDataRequirements.department = ZDCPreChatDataOptionalEditable;
         defaults.preChatDataRequirements.message = ZDCPreChatDataOptional;
+      
     }];
-
-    // To override the default avatar uncomment and complete the image name
-    //[[ZDCChatAvatar appearance] setDefaultAvatar:@"your_avatar_name_here"];
 
     // Uncomment to disable visitor data persistence between application runs
     //[[ZDCChat instance].session visitorInfo].shouldPersist = NO;

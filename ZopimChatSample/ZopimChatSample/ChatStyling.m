@@ -24,7 +24,12 @@
 + (void) applyStyling
 {
     UIEdgeInsets insets;
-
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    // Setting Default avatar
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    //[[ZDCChatAvatar appearance] setDefaultAvatarImage:[UIImage imageNamed:@"your_avatar_name_here"]];
+    
     ////////////////////////////////////////////////////////////////////////////////////////////////
     // Configuring the chat widget/overlay
     ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -182,6 +187,7 @@
 
     // Set the base view background color
     //[[ZDCChatUI appearance] setChatBackgroundColor:[UIColor colorWithWhite:0.96f alpha:1.0f]];
+    //[[ZDCChatUI appearance] setBackChatButtonImage:@"SampleBackground"];
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
     // Custom chat background (static image)
@@ -190,6 +196,11 @@
     // set the base view background image name and anchor
     //[[ZDCChatUI appearance] setChatBackgroundImage:@"SampleBackground"];
     //[[ZDCChatUI appearance] setChatBackgroundAnchor:@(ZDCChatBackgroundAnchorCenter)];
+    
+    //Customise the chat overlay icon
+    //[[ZDCChatOverlay appearance] setOverlayTintColor:[UIColor redColor]];
+    //UIImage *overlayImage = [UIImage imageNamed:@"SampleOverlayIcon"];
+    //[[ZDCChatOverlay appearance] setOverlayBackgroundImage:overlayImage];
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
     // UI notifications
