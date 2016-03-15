@@ -21,6 +21,12 @@ pod 'ZDCChat'
 
 ````
 
+## Documentation
+
+* [Overview](https://developer.zendesk.com/embeddables/docs/ios-chat-sdk/overview)
+* [Getting started](https://developer.zendesk.com/embeddables/docs/ios-chat-sdk/gettingstarted)
+* [Release notes](https://developer.zendesk.com/embeddables/docs/ios-chat-sdk/releasenotes)
+
 
 ## Copyright and license
 
