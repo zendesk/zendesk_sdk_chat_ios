@@ -26,7 +26,7 @@
 
 @property (nonatomic, strong) NSString * event;
 @property (nonatomic, strong) NSString *url;
-@property (nonatomic, assign) long timestamp;
+@property (nonatomic, assign) NSTimeInterval timestamp;
 
 
 @end
