@@ -5,7 +5,7 @@
  *
  *  Created by Zendesk on 27/10/2014.
  *
- *  Copyright (c) 2015 Zendesk. All rights reserved.
+ *  Copyright (c) 2016 Zendesk. All rights reserved.
  *
  *  By downloading or using the Zopim Chat SDK, You agree to the Zendesk Terms
  *  of Service https://www.zendesk.com/company/terms and Application Developer and API License
@@ -35,16 +35,7 @@
     [ChatStyling applyStyling];
 
     // configure account key and pre-chat form
-    [ZDCChat configure:^(ZDCConfig *defaults) {
-
-        defaults.accountKey = @"your account key here";
-        defaults.preChatDataRequirements.name = ZDCPreChatDataOptionalEditable;
-        defaults.preChatDataRequirements.email = ZDCPreChatDataOptionalEditable;
-        defaults.preChatDataRequirements.phone = ZDCPreChatDataOptionalEditable;
-        defaults.preChatDataRequirements.department = ZDCPreChatDataOptionalEditable;
-        defaults.preChatDataRequirements.message = ZDCPreChatDataOptional;
-      
-    }];
+    [ZDCChat initializeWithAccountKey:@"your account key here"];
 
     // Uncomment to disable visitor data persistence between application runs
     //[[ZDCChat instance].session visitorInfo].shouldPersist = NO;
@@ -83,7 +74,7 @@
 
 - (void) styleApp
 {
-    if ([ZDUUtil isVersionOrNewer:@(7)]) {
+    if ([self isVersionOrNewer:@(7)]) {
 
         // status bar
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
@@ -95,7 +86,7 @@
         [[UINavigationBar appearance] setTitleTextAttributes:navbarAttributes];
         [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.91f green:0.16f blue:0.16f alpha:1.0f]];
 
-        if ([ZDUUtil isVersionOrNewer:@(8)]) {
+        if ([self isVersionOrNewer:@(8)]) {
 
             // For translucent nav bars set YES
             [[UINavigationBar appearance] setTranslucent:NO];
@@ -120,7 +111,14 @@ void uncaughtExceptionHandler(NSException *exception) {
     [ZDCLog e:@"Stack Trace: %@", [exception callStackSymbols]];
 }
 
-
+- (BOOL) isVersionOrNewer:(NSNumber*)majorVersionNumber
+{
+  NSNumberFormatter * formatter = [[NSNumberFormatter alloc] init];
+  formatter.numberStyle = NSNumberFormatterDecimalStyle;
+  
+  NSNumber *osVersionNumber = [formatter numberFromString:[NSString stringWithFormat:@"%c",[[UIDevice currentDevice].systemVersion characterAtIndex:0]]];
+  return (osVersionNumber.intValue >= majorVersionNumber.intValue);
+}
 
 @end
 

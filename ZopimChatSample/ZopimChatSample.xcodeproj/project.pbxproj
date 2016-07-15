@@ -15,8 +15,11 @@
 		212810161ABB6695005F555E /* ChatStyling.m in Sources */ = {isa = PBXBuildFile; fileRef = 212810121ABB6695005F555E /* ChatStyling.m */; };
 		212810171ABB6695005F555E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 212810141ABB6695005F555E /* ViewController.m */; };
 		212DA2491B44707D00289C59 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 212DA24B1B44707D00289C59 /* Localizable.strings */; };
+		836FF89B1D22CE8900B2F607 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 836FF89A1D22CE8900B2F607 /* AVFoundation.framework */; };
+		836FF89D1D22CFFB00B2F607 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 836FF89C1D22CFFB00B2F607 /* AssetsLibrary.framework */; };
 		D7887CF41C16073600994A5C /* ZDCChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1E7FCD11A029CED008EB605 /* ZDCChat.framework */; };
 		D7887CF71C160E6B00994A5C /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2124D6C81B258E9E002BC280 /* MobileCoreServices.framework */; };
+		D7F93EDC1D008B5100C092B2 /* ZDCChatAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7F93EDB1D008B5100C092B2 /* ZDCChatAPI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +75,9 @@
 		212DA25B1B44717300289C59 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		212DA25C1B4471B000289C59 /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-GB"; path = "en-GB.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		212DA25E1B44727100289C59 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
+		836FF89A1D22CE8900B2F607 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		836FF89C1D22CFFB00B2F607 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		D7F93EDB1D008B5100C092B2 /* ZDCChatAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZDCChatAPI.framework; path = "../build/Debug-iphonesimulator/ZDCChatAPI.framework"; sourceTree = "<group>"; };
 		F1E7FCD11A029CED008EB605 /* ZDCChat.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZDCChat.framework; path = ZopimChatSample/Frameworks/ZDCChat.framework; sourceTree = "<group>"; };
 		F1F19A6119FE7F8A00B4B49A /* Chat Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chat Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1F19A6519FE7F8A00B4B49A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ZopimChatSample/Info.plist; sourceTree = SOURCE_ROOT; };
@@ -83,6 +89,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				836FF89D1D22CFFB00B2F607 /* AssetsLibrary.framework in Frameworks */,
+				836FF89B1D22CE8900B2F607 /* AVFoundation.framework in Frameworks */,
+				D7F93EDC1D008B5100C092B2 /* ZDCChatAPI.framework in Frameworks */,
 				D7887CF71C160E6B00994A5C /* MobileCoreServices.framework in Frameworks */,
 				D7887CF41C16073600994A5C /* ZDCChat.framework in Frameworks */,
 			);
@@ -155,6 +164,9 @@
 		F1F19AD219FFD3C800B4B49A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				836FF89C1D22CFFB00B2F607 /* AssetsLibrary.framework */,
+				836FF89A1D22CE8900B2F607 /* AVFoundation.framework */,
+				D7F93EDB1D008B5100C092B2 /* ZDCChatAPI.framework */,
 				2124D6C81B258E9E002BC280 /* MobileCoreServices.framework */,
 				F1E7FCD11A029CED008EB605 /* ZDCChat.framework */,
 			);
