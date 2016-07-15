@@ -5,7 +5,7 @@
  *
  *  Created by Zendesk on 01/12/2014.
  *
- *  Copyright (c) 2015 Zendesk. All rights reserved.
+ *  Copyright (c) 2016 Zendesk. All rights reserved.
  *
  *  By downloading or using the Zopim Chat SDK, You agree to the Zendesk Terms
  *  of Service https://www.zendesk.com/company/terms and Application Developer and API License
@@ -16,7 +16,7 @@
 
 
 #import <ZDCChat/ZDCChat.h>
-
+#import "ZDCChatTimedOutCell.h"
 
 @interface ZDCAccountOfflineCell : ZDCChatTimedOutCell
 

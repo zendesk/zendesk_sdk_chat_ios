@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
     s.name         = "ZDCChat"
-    s.version      = "1.2.1.1"
-    s.summary      = "Zopim SDK 1.2.1.1"
+    s.version      = "1.3.0.1"
+    s.summary      = "Zopim SDK 1.3.0.1"
     s.homepage     = "https://github.com/zendesk/zendesk_sdk_chat_ios"
     s.license      = {
     :type => 'Copyright',
@@ -23,21 +23,27 @@ Pod::Spec.new do |s|
     s.platform     = :ios, '6.0'
     s.requires_arc = true
 
-    # Using subspecs to support installation without Localization part
-    s.default_subspecs = 'Core', 'Localization'
+    s.default_subspecs = 'UI', 'API', 'Localization'
 
-    s.subspec 'Core' do |ss|
+    s.subspec 'UI' do |ss|
         ss.public_header_files = 'ZDCChat.framework/**/*.h'
         ss.ios.vendored_frameworks = 'ZDCChat.framework'
         ss.preserve_paths = 'ZDCChat.framework'
-        ss.frameworks = 'MobileCoreServices', 'SystemConfiguration'
+        ss.frameworks = 'MobileCoreServices', 'SystemConfiguration', 'AVFoundation', 'AssetsLibrary'
         ss.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '$(inherited)', 'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES' }
         ss.resources = ["ZDCChat.bundle"]
+        ss.dependency 'ZDCChat/API' 
     end
 
     s.subspec 'Localization' do |ss|
         ss.resources = ["ZDCChatStrings.bundle"]
-        ss.dependency 'ZDCChat/Core'
     end
 
+    s.subspec 'API' do |ss|
+        ss.public_header_files = 'ZDCChatAPI.framework/**/*.h'
+        ss.frameworks = 'SystemConfiguration'
+        ss.ios.vendored_frameworks = 'ZDCChatAPI.framework'
+        ss.preserve_paths = 'ZDCChatAPI.framework'
+        ss.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '$(inherited)', 'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES' }
+    end
 end

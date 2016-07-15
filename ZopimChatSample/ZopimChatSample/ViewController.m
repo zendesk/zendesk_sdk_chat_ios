@@ -5,7 +5,7 @@
  *
  *  Created by Zendesk on 27/10/2014.
  *
- *  Copyright (c) 2015 Zendesk. All rights reserved.
+ *  Copyright (c) 2016 Zendesk. All rights reserved.
  *
  *  By downloading or using the Zopim Chat SDK, You agree to the Zendesk Terms
  *  of Service https://www.zendesk.com/company/terms and Application Developer and API License
@@ -115,23 +115,27 @@ static const float ZDC_CONTENT_HEIGHT = 410.0f;
 - (void) allPreChatFieldsOptional
 {
     // track the event
-    [[ZDCChat instance].session trackEvent:@"Chat button pressed: (all fields optional)"];
-
+    [[ZDCChat instance].api trackEvent:@"Chat button pressed: (all fields optional)"];
+    
     // start a chat in a new modal
-    [ZDCChat startChat:nil];
+    [ZDCChat startChatIn:self.navigationController withConfig:^(ZDCConfig *config) {
+        config.preChatDataRequirements.name = ZDCPreChatDataOptionalEditable;
+        config.preChatDataRequirements.email = ZDCPreChatDataOptionalEditable;
+        config.preChatDataRequirements.phone = ZDCPreChatDataOptionalEditable;
+        config.preChatDataRequirements.department = ZDCPreChatDataOptionalEditable;
+        config.preChatDataRequirements.message = ZDCPreChatDataOptionalEditable;
+    }];
 }
 
 
 - (void) allPreChatFieldsRequired
 {
     // track the event
-    [[ZDCChat instance].session trackEvent:@"Chat button pressed: (all fields required)"];
+    [[ZDCChat instance].api trackEvent:@"Chat button pressed: (all fields required)"];
 
     // Start a chat pushed on to the current navigation controller
     // with session config making all pre-chat fields required
-    [ZDCChat startChatIn:self.navigationController withConfig:^(ZDCSessionConfig *config) {
-        
-
+    [ZDCChat startChatIn:self.navigationController withConfig:^(ZDCConfig *config) {
         config.preChatDataRequirements.name = ZDCPreChatDataRequiredEditable;
         config.preChatDataRequirements.email = ZDCPreChatDataRequiredEditable;
         config.preChatDataRequirements.phone = ZDCPreChatDataRequiredEditable;
@@ -144,12 +148,11 @@ static const float ZDC_CONTENT_HEIGHT = 410.0f;
 - (void) noPreChatForm
 {
     // track the event
-    [[ZDCChat instance].session trackEvent:@"Chat button pressed: (no pre-chat form)"];
+    [[ZDCChat instance].api trackEvent:@"Chat button pressed: (no pre-chat form)"];
 
     // start a chat pushed on to the current navigation controller
     // with session config setting all pre-chat fields as not required
-    [ZDCChat startChatIn:self.navigationController withConfig:^(ZDCSessionConfig *config) {
-
+    [ZDCChat startChatIn:self.navigationController withConfig:^(ZDCConfig *config) {
         config.preChatDataRequirements.name = ZDCPreChatDataNotRequired;
         config.preChatDataRequirements.email = ZDCPreChatDataNotRequired;
         config.preChatDataRequirements.phone = ZDCPreChatDataNotRequired;
@@ -163,7 +166,7 @@ static const float ZDC_CONTENT_HEIGHT = 410.0f;
 - (void) presetData
 {
     // track the event
-    [[ZDCChat instance].session trackEvent:@"Chat button pressed: (pre-set data)"];
+    [[ZDCChat instance].api trackEvent:@"Chat button pressed: (pre-set data)"];
 
     // before starting the chat set the visitor data
     [ZDCChat updateVisitor:^(ZDCVisitorInfo *visitor) {
@@ -175,15 +178,16 @@ static const float ZDC_CONTENT_HEIGHT = 410.0f;
 
     // start a chat pushed on to the current navigation controller
     // with a session config requiring all pre-chat fields and setting tags and department
-    [ZDCChat startChatIn:self.navigationController withConfig:^(ZDCSessionConfig *config) {
-        
+    [ZDCChat startChatIn:self.navigationController withConfig:^(ZDCConfig *config) {
         config.preChatDataRequirements.name = ZDCPreChatDataRequired;
         config.preChatDataRequirements.email = ZDCPreChatDataRequired;
         config.preChatDataRequirements.phone = ZDCPreChatDataRequired;
         config.preChatDataRequirements.department = ZDCPreChatDataRequired;
         config.preChatDataRequirements.message = ZDCPreChatDataRequired;
-        config.department = @"The date";
-        config.tags = @[@"tag1", @"tag2"];
+
+      //TODO
+//        sessionConfig.department = @"The date";
+//        sessionConfig.tags = @[@"tag1", @"tag2"];
     }];
 }
 
@@ -191,7 +195,7 @@ static const float ZDC_CONTENT_HEIGHT = 410.0f;
 - (void) openModalViewController
 {
     // track the event
-    [[ZDCChat instance].session trackEvent:@"Modal View Controller opened"];
+    [[ZDCChat instance].api trackEvent:@"Modal View Controller opened"];
 
     // simple app navigation simulation
     ViewController *vc = [[ViewController alloc] initWithNibName:nil bundle:nil];
@@ -213,7 +217,7 @@ static const float ZDC_CONTENT_HEIGHT = 410.0f;
 - (void) pushViewController
 {
     // track the event
-    [[ZDCChat instance].session trackEvent:@"View Controller pushed"];
+    [[ZDCChat instance].api trackEvent:@"View Controller pushed"];
 
     // simple app navigation simulation
     ViewController *vc = [[ViewController alloc] initWithNibName:nil bundle:nil];
@@ -282,10 +286,7 @@ static const float ZDC_CONTENT_HEIGHT = 410.0f;
 
             if (textField.text.length > 0) {
 
-                [ZDCChat configure:^(ZDCConfig *defaults) {
-
-                    defaults.accountKey = textField.text;
-                }];
+              [ZDCChat initializeWithAccountKey:textField.text];
             }
             break;
         }
