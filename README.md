@@ -21,9 +21,11 @@ pod 'ZDCChat'
 
 ## Documentation
 
-* [Overview](https://developer.zendesk.com/embeddables/docs/ios-chat-sdk/overview)
+* [Introduction](https://developer.zendesk.com/embeddables/docs/ios-chat-sdk/introduction)
 * [Getting started](https://developer.zendesk.com/embeddables/docs/ios-chat-sdk/gettingstarted)
-* [Release notes](https://developer.zendesk.com/embeddables/docs/ios-chat-sdk/releasenotes)
+* [Release notes](https://developer.zendesk.com/embeddables/docs/ios-chat-sdk/releasenotes) 
+
+If you are migrating to version 1.3.x.x, then this [migration guide](https://developer.zendesk.com/embeddables/docs/ios-chat-sdk/migration) is available.
 
 ## A note regarding iOS 10
 
