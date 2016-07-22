@@ -1,6 +1,6 @@
 :warning: *Use of this software is subject to important terms and conditions as set forth in the License file* :warning:
 
-# Zopim Mobile SDK for iOS 1.3.0.1
+# Zopim Mobile SDK for iOS 1.3.0.2
 
 Zopim SDK for mobile is a quick, convenient way to get live chat into your mobile apps. With just a few lines of code, you can provide your end users with an easy way to get in touch from any mobile app.
 
@@ -24,6 +24,7 @@ pod 'ZDCChat'
 * [Overview](https://developer.zendesk.com/embeddables/docs/ios-chat-sdk/overview)
 * [Getting started](https://developer.zendesk.com/embeddables/docs/ios-chat-sdk/gettingstarted)
 * [Release notes](https://developer.zendesk.com/embeddables/docs/ios-chat-sdk/releasenotes)
+
 
 ## A note regarding iOS 10
 

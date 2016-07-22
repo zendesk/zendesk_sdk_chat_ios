@@ -1,3 +1,6 @@
+# Version 1.3.0.2
+Fixing an issue with library not containing bitcode support for some slices.
+
 # Version 1.3.0.1
 
 ## ZDCChat
