@@ -28,10 +28,6 @@ pod 'ZDCChat'
 If you are migrating to version 1.3.x.x, then this [migration guide](https://developer.zendesk.com/embeddables/docs/ios-chat-sdk/migration) is available.
 
 
-## A note regarding iOS 10
-
-We are aware that there are issues with the SDK when testing on iOS 10. We are currently working on a release of the SDK that addresses these issues, in line with our policy of supporting the current and previous two versions of iOS. If you find any iOS 10 specific issues, please feel free to submit them.
-
 ## Copyright and license
 
 Copyright 2016 Zendesk
