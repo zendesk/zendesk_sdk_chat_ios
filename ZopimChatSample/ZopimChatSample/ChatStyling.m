@@ -261,36 +261,17 @@
 
 + (UIColor*) navBarTintColor
 {
-  if ([self isVersionOrNewer:@(7)]) {
-    return [UINavigationBar appearance].barTintColor;
-  }
-  return [UINavigationBar appearance].tintColor;
+  return [UINavigationBar appearance].barTintColor;
 }
 
 + (UIColor*) navTintColor
 {
-  if ([self isVersionOrNewer:@(7)]) {
-    return [UINavigationBar appearance].tintColor;
-  }
-  
-  NSDictionary *titleTextOptions = [UINavigationBar appearance].titleTextAttributes;
-  
-  UIColor *color = [titleTextOptions objectForKey:UITextAttributeTextColor];
-  
-  if (!color) {
-    // default to white, (should probably calculate light/dark based on bar background at some point).
-    color = [UIColor whiteColor];
-  }
-  return color;
+  return [UINavigationBar appearance].tintColor;
 }
 
-+ (BOOL) isVersionOrNewer:(NSNumber*)majorVersionNumber
++ (BOOL) isVersionOrNewer:(NSString*)majorVersionNumber
 {
-  NSNumberFormatter * formatter = [[NSNumberFormatter alloc] init];
-  formatter.numberStyle = NSNumberFormatterDecimalStyle;
-  
-  NSNumber *osVersionNumber = [formatter numberFromString:[NSString stringWithFormat:@"%c",[[UIDevice currentDevice].systemVersion characterAtIndex:0]]];
-  return (osVersionNumber.intValue >= majorVersionNumber.intValue);
+  return [[[UIDevice currentDevice] systemVersion] compare:majorVersionNumber options:NSNumericSearch] != NSOrderedAscending;
 }
 
 @end

@@ -1,3 +1,7 @@
+# Version 1.3.1.1
+- Fixing issues occurring on iOS 10 
+- Fixing an issue that causes the chat view controller to pop the active controller twice
+
 # Version 1.3.0.2
 Fixing an issue with library not containing bitcode support for some slices.
 

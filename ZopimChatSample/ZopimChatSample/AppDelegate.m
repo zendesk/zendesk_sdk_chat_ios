@@ -74,35 +74,28 @@
 
 - (void) styleApp
 {
-    if ([self isVersionOrNewer:@(7)]) {
+    // status bar
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 
-        // status bar
-        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    // nav bar
+    NSDictionary *navbarAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                      [UIColor whiteColor] ,UITextAttributeTextColor, nil];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setTitleTextAttributes:navbarAttributes];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.91f green:0.16f blue:0.16f alpha:1.0f]];
 
-        // nav bar
-        NSDictionary *navbarAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
-                                          [UIColor whiteColor] ,UITextAttributeTextColor, nil];
-        [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-        [[UINavigationBar appearance] setTitleTextAttributes:navbarAttributes];
-        [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.91f green:0.16f blue:0.16f alpha:1.0f]];
+    if ([self isVersionOrNewer:@"8.0"]) {
 
-        if ([self isVersionOrNewer:@(8)]) {
-
-            // For translucent nav bars set YES
-            [[UINavigationBar appearance] setTranslucent:NO];
-        }
-
-        // For a completely transparent nav bar uncomment this and set 'translucent' above to YES
-        // (you may also want to change the title text and tint colors above since they are white by default)
-        //[[UINavigationBar appearance] setBarStyle:UIBarStyleDefault];
-        //[[UINavigationBar appearance] setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-        //[[UINavigationBar appearance] setShadowImage:[UIImage new]];
-        //[[UINavigationBar appearance] setBackgroundColor:[UIColor clearColor]];
-
-    } else {
-
-        [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:0.91f green:0.16f blue:0.16f alpha:1.0f]];
+        // For translucent nav bars set YES
+        [[UINavigationBar appearance] setTranslucent:NO];
     }
+
+    // For a completely transparent nav bar uncomment this and set 'translucent' above to YES
+    // (you may also want to change the title text and tint colors above since they are white by default)
+    //[[UINavigationBar appearance] setBarStyle:UIBarStyleDefault];
+    //[[UINavigationBar appearance] setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    //[[UINavigationBar appearance] setShadowImage:[UIImage new]];
+    //[[UINavigationBar appearance] setBackgroundColor:[UIColor clearColor]];
 }
 
 
@@ -111,13 +104,8 @@ void uncaughtExceptionHandler(NSException *exception) {
     [ZDCLog e:@"Stack Trace: %@", [exception callStackSymbols]];
 }
 
-- (BOOL) isVersionOrNewer:(NSNumber*)majorVersionNumber
-{
-  NSNumberFormatter * formatter = [[NSNumberFormatter alloc] init];
-  formatter.numberStyle = NSNumberFormatterDecimalStyle;
-  
-  NSNumber *osVersionNumber = [formatter numberFromString:[NSString stringWithFormat:@"%c",[[UIDevice currentDevice].systemVersion characterAtIndex:0]]];
-  return (osVersionNumber.intValue >= majorVersionNumber.intValue);
+- (BOOL) isVersionOrNewer:(NSString*)majorVersionNumber {
+  return [[[UIDevice currentDevice] systemVersion] compare:majorVersionNumber options:NSNumericSearch] != NSOrderedAscending;
 }
 
 @end
