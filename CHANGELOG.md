@@ -1,3 +1,8 @@
+# Version 1.3.2.1
+- Fixing a lag issue that happens when writing the chat message on some devices
+- Adding `addNote` method to `ZDCVisitorInfo` 
+- Adding `setNote` and `appendNote` to `ZDCChatAPI` 
+
 # Version 1.3.1.1
 - Fixing issues occurring on iOS 10 
 - Fixing an issue that causes the chat view controller to pop the active controller twice

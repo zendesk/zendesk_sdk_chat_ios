@@ -17,7 +17,7 @@
 #import <UIKit/UIKit.h>
 
 // Chat API SDK Version
-#define ZDC_CHAT_API_SDK_VERSION @"1.3.1.1"
+#define ZDC_CHAT_API_SDK_VERSION @"1.3.2.1"
 
 #import <SystemConfiguration/SystemConfiguration.h>
 
@@ -205,6 +205,20 @@
  * @param fileName name with which to upload the file, must include it's extension
  */
 - (void)uploadImage:(UIImage*)image name:(NSString*)fileName;
+
+/**
+ * Set a visitor note. This will replace anything set by the agent.
+ * @param the note text
+ */
+- (void) setNote:(NSString*)note;
+
+/**
+ * Append a visitor note
+ * @param the note text
+ */
+- (void) appendNote:(NSString*)note;
+
+
 
 @end
 

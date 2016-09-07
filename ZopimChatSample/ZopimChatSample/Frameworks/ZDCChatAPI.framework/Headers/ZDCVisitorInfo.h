@@ -21,6 +21,7 @@
 @protocol ZDCChatIO;
 /**
  * The visitor details currently known by the Chat SDK.
+ * The values here are never read from the server, they are only used to send information.
  */
 @interface ZDCVisitorInfo : NSObject
 
@@ -39,6 +40,14 @@
  * The visitors phone to be submitted prior to the chat starting.
  */
 @property (nonatomic, strong) NSString *phone;
+
+/*
+ * Add a visitor note. This will append it to any existing notes in Zopim.
+ * @param the note to set
+ */
+- (void) addNote:(NSString*)note;
+
+
 
 /**
  * Specifies whether visitor data should be persisted for use when starting 

@@ -535,7 +535,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zopim.chatsample;
 				PRODUCT_NAME = "Chat Sample";
-				PROVISIONING_PROFILE = "59d659bb-b252-4b46-9ebb-7025c1b0e43a";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
