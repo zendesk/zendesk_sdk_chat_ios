@@ -10,7 +10,7 @@
 		</data>
 		<key>Headers/ZDCChatAPI.h</key>
 		<data>
-		pL1lAoJBgYzjBO6XOqMsRRMU/kI=
+		YOj8ZvivGSVAmP8mVuPWivuvDXg=
 		</data>
 		<key>Headers/ZDCChatAPIEnums.h</key>
 		<data>
@@ -50,7 +50,7 @@
 		</data>
 		<key>Headers/ZDCVisitorInfo.h</key>
 		<data>
-		yCwzhQa822yZ+MM5lDEzrqTzCLo=
+		Q88RERv2BCjxzPz6kRB0aiAjPms=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -78,11 +78,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			pL1lAoJBgYzjBO6XOqMsRRMU/kI=
+			YOj8ZvivGSVAmP8mVuPWivuvDXg=
 			</data>
 			<key>hash2</key>
 			<data>
-			qVaJYNRBqLjpO5jyvhnAnHnpWcfOyL+ufobof5cz5iM=
+			ghNWSoQF5wmu33puV/oj+3FA3NpPgwUnmHX4JeyUAZQ=
 			</data>
 		</dict>
 		<key>Headers/ZDCChatAPIEnums.h</key>
@@ -188,11 +188,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			yCwzhQa822yZ+MM5lDEzrqTzCLo=
+			Q88RERv2BCjxzPz6kRB0aiAjPms=
 			</data>
 			<key>hash2</key>
 			<data>
-			y28o6Xyn6fa972gsKBBqSHXOSNHtTkhhQfho3cu+w1c=
+			AGEGA2fU/tFJFbwKQNRUmI7Elz9Kud7scS2C4eXqZ8I=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

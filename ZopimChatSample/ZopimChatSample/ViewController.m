@@ -174,6 +174,7 @@ static const float ZDC_CONTENT_HEIGHT = 410.0f;
         visitor.phone = [NSString stringWithFormat:@"%lu", (long)[[NSDate date] timeIntervalSince1970]];
         visitor.name = [NSString stringWithFormat:@"Preconfig %lu", (long)[[NSDate date] timeIntervalSince1970]];
         visitor.email = [NSString stringWithFormat:@"chattest+%lu@test.com", (long)[[NSDate date] timeIntervalSince1970]];
+        [visitor addNote:@"This is another note"];
     }];
 
     // start a chat pushed on to the current navigation controller
