@@ -1,3 +1,6 @@
+# Version 1.3.3.1
+- Fixing bug to allow special characters to be sent.
+
 # Version 1.3.2.1
 - Fixing a lag issue that happens when writing the chat message on some devices
 - Adding `addNote` method to `ZDCVisitorInfo` 
