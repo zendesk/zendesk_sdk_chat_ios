@@ -26,7 +26,6 @@ Pod::Spec.new do |s|
     s.default_subspecs = 'UI', 'API', 'Localization'
 
     s.subspec 'UI' do |ss|
-        ss.public_header_files = 'ZDCChat.framework/**/*.h'
         ss.ios.vendored_frameworks = 'ZDCChat.framework'
         ss.preserve_paths = 'ZDCChat.framework'
         ss.frameworks = 'MobileCoreServices', 'SystemConfiguration', 'AVFoundation', 'AssetsLibrary'
@@ -40,7 +39,6 @@ Pod::Spec.new do |s|
     end
 
     s.subspec 'API' do |ss|
-        ss.public_header_files = 'ZDCChatAPI.framework/**/*.h'
         ss.frameworks = 'SystemConfiguration'
         ss.ios.vendored_frameworks = 'ZDCChatAPI.framework'
         ss.preserve_paths = 'ZDCChatAPI.framework'
