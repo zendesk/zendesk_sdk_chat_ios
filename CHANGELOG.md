@@ -1,3 +1,6 @@
+# Version 1.3.4.1
+- Fixing bug that would allow the chat to start when the departments are offline.
+
 # Version 1.3.3.1
 - Fixing bug to allow special characters to be sent.
 
