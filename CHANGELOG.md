@@ -1,3 +1,6 @@
+# Version 1.3.5.1
+- Fixing bug that would not show departments and not start the chat if agents’ status is ‘Away’.
+
 # Version 1.3.4.1
 - Fixing bug that would allow the chat to start when the departments are offline.
 
