@@ -1,3 +1,6 @@
+# Version 1.3.6.1
+- An update to improve the security of the client's connection to Chat. We recommend that all customers upgrade to this version.
+
 # Version 1.3.5.1
 - Fixing bug that would not show departments and not start the chat if agents’ status is ‘Away’.
 
