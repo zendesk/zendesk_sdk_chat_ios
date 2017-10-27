@@ -17,7 +17,7 @@
 #import <UIKit/UIKit.h>
 
 // Chat API SDK Version
-#define ZDC_CHAT_API_SDK_VERSION @"1.3.6.1"
+#define ZDC_CHAT_API_SDK_VERSION @"1.3.7.1"
 
 #import <SystemConfiguration/SystemConfiguration.h>
 

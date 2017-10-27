@@ -1,3 +1,6 @@
+# Version 1.3.7.1
+- Fixed iPhone X issues
+
 # Version 1.3.6.1
 - An update to improve the security of the client's connection to Chat. We recommend that all customers upgrade to this version.
 
