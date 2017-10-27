@@ -20,7 +20,7 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 
 // Chat API SDK Version
-#define ZDC_CHAT_SDK_VERSION @"1.3.6.1"
+#define ZDC_CHAT_SDK_VERSION @"1.3.7.1"
 
 #if MODULES_DISABLED
 #import <ZDCChatAPI/ZDCChatAPI.h>
