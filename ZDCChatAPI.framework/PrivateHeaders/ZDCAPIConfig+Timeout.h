@@ -14,7 +14,7 @@
  *
  */
 
-#import "ZDCAPIConfig.h"
+#import <ZDCChatAPI/ZDCAPIConfig.h>
 
 
 @interface ZDCAPIConfig ()
