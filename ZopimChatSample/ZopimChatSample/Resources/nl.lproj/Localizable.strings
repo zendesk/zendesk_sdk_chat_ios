@@ -13,3 +13,5 @@
  *  acknowledge that such terms govern Your use of and access to the Mobile SDK.
  *
  */
+"ios.ZDCChat.pushChatEndedTitle" = "Chat ended";
+"ios.ZDCChat.pushChatEndedBody" = "Your chat with %@ has ended";

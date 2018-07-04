@@ -39,6 +39,12 @@
 @property (nonatomic, strong) NSString *visitorPathTwo;
 
 /**
+ * This is the URL for the visitor path on line 2 of the visitor path.
+ * Defaults to the form: "{app_name}://{long timestamp}"
+ */
+@property (nonatomic, strong) NSString *visitorPathTwoUrl;
+
+/**
  * The department to be selected when a chat starts.
  */
 @property (nonatomic, strong) NSString *department;
