@@ -20,7 +20,7 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 
 // Chat API SDK Version
-#define ZDC_CHAT_SDK_VERSION @"1.3.7.1"
+#define ZDC_CHAT_SDK_VERSION @"1.4.0"
 
 #if MODULES_DISABLED
 #import <ZDCChatAPI/ZDCChatAPI.h>
@@ -156,6 +156,24 @@ typedef void (^ZDCConfigBlock) (ZDCConfig *config);
  * Minise the chat window.
  */
 + (void)minimiseChat;
+
+/**
+ * Set the push token for this session.
+ *
+ * @param token the push token received from the didRegisterForRemoteNotificationsWithDeviceToken response
+ */
++ (void) setPushToken:(NSData*)token;
+
+/**
+ * If a user revokes push permissions you can remove the push token from the session with this method.
+ */
++ (void) clearPushToken;
+
+/**
+ * Push notifications which are received in the app delegate didReceiveRemoteNotification method should be passed to
+ * the SDK via this method.
+ */
++ (void) didReceiveRemoteNotification:(NSDictionary*)userInfo;
 
 
 @end

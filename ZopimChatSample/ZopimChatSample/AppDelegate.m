@@ -32,7 +32,7 @@
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
     // apply appearance styling first if you want to customise the look of the chat
-    [ChatStyling applyStyling];
+    //[ChatStyling applyStyling];
 
     // configure account key and pre-chat form
     [ZDCChat initializeWithAccountKey:@"your account key here"];
@@ -45,7 +45,7 @@
 
     // remember to switch off debug logging before app store submission!
     [ZDCLog enable:YES];
-    [ZDCLog setLogLevel:ZDCLogLevelWarn];
+    [ZDCLog setLogLevel:ZDCLogLevelInfo];
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
     // sample app boiler plate
@@ -65,9 +65,14 @@
     // assign nav controller as root
     self.window.rootViewController = navController;
 
+    // push notifications
+    [self requestPermissions];
+
     // make key window
     [self.window makeKeyAndVisible];
 
+    // notification
+    [ZDCChat didReceiveRemoteNotification:launchOptions];
     return YES;
 }
 
@@ -79,7 +84,7 @@
 
     // nav bar
     NSDictionary *navbarAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
-                                      [UIColor whiteColor] ,UITextAttributeTextColor, nil];
+                                      [UIColor whiteColor] ,NSForegroundColorAttributeName, nil];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[UINavigationBar appearance] setTitleTextAttributes:navbarAttributes];
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.91f green:0.16f blue:0.16f alpha:1.0f]];
@@ -87,7 +92,7 @@
     if ([self isVersionOrNewer:@"8.0"]) {
 
         // For translucent nav bars set YES
-        [[UINavigationBar appearance] setTranslucent:NO];
+        [[UINavigationBar appearance] setTranslucent:YES];
     }
 
     // For a completely transparent nav bar uncomment this and set 'translucent' above to YES
@@ -96,6 +101,43 @@
     //[[UINavigationBar appearance] setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     //[[UINavigationBar appearance] setShadowImage:[UIImage new]];
     //[[UINavigationBar appearance] setBackgroundColor:[UIColor clearColor]];
+}
+
+
+- (void) requestPermissions
+{
+    UIUserNotificationSettings *s = [UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeSound |
+                                                                                  UIUserNotificationTypeAlert |
+                                                                                  UIUserNotificationTypeBadge)
+                                                                      categories:nil];
+
+    [[UIApplication sharedApplication] registerUserNotificationSettings:s];
+}
+
+
+- (void) application:(UIApplication*)application
+    didRegisterUserNotificationSettings:(UIUserNotificationSettings*)notificationSettings
+{
+    [[UIApplication sharedApplication] registerForRemoteNotifications];
+}
+
+
+- (void) application:(UIApplication*)app didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)tokenData
+{
+    [ZDCLog i:@"App obtained push token"];
+    [ZDCChat setPushToken:tokenData];
+}
+
+
+- (void) application:(UIApplication*)app didFailToRegisterForRemoteNotificationsWithError:(NSError*)err
+{
+    [ZDCLog i:@"App failed to obtain push token"];
+}
+
+
+- (void) application:(UIApplication*)application didReceiveRemoteNotification:(NSDictionary*)userInfo
+{
+    [ZDCChat didReceiveRemoteNotification:userInfo];
 }
 
 

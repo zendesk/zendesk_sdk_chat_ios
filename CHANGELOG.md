@@ -1,3 +1,8 @@
+# Version 1.4.0
+- Add support for push notifications
+- Fixed layout issue with transparent UINavigationBar
+- Stabilized UITableView updates
+
 # Version 1.3.7.1
 - Fixed iPhone X issues
 

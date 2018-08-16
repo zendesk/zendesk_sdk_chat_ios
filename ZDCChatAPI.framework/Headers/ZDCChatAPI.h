@@ -17,7 +17,7 @@
 #import <UIKit/UIKit.h>
 
 // Chat API SDK Version
-#define ZDC_CHAT_API_SDK_VERSION @"1.3.7.1"
+#define ZDC_CHAT_API_SDK_VERSION @"1.4.0"
 
 #import <SystemConfiguration/SystemConfiguration.h>
 
@@ -218,6 +218,17 @@
  */
 - (void) appendNote:(NSString*)note;
 
+/**
+ * Set the push token for this session.
+ *
+ * @param token the push token received from the didRegisterForRemoteNotificationsWithDeviceToken response
+ */
+- (void) setPushToken:(NSData*)token;
+
+/**
+ * If a user revokes push permissions you can remove the push token from the session with this method.
+ */
+- (void) clearPushToken;
 
 
 @end
