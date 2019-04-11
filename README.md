@@ -27,9 +27,9 @@ pod 'ZDCChat'
 
 If you are migrating to version 1.3.x.x, then this [migration guide](https://developer.zendesk.com/embeddables/docs/ios-chat-sdk/migration) is available.
 
-## Feature request
+## Feature requests and issues
 
-All enhancement, improvement, and feature request suggestions are welcomed. Please submit them to our [SDK community](https://support.zendesk.com/hc/en-us/community/topics/200488257-Zendesk-SDKs). We will normally close feature requests posted to this repository.
+All feature requests and issues are welcomed. Please see our [contributing guidelines](./CONTRIBUTING.md) to find out how to contact us.
 
 ## Copyright and license
 
