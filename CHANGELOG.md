@@ -1,10 +1,14 @@
-# Version 1.4.0
-- Add support for push notifications
-- Fixed layout issue with transparent UINavigationBar
-- Stabilized UITableView updates
+# Version 1.4.1
+- Improved support for agent availability monitoring in the chat window. You can now enable a feature that will provide a real time reflection of agent availability.
+- Provided a fix for some triggers not firing when setting the department. A new method can be called if this issue is being experienced.
+- Safer handling of notifications to reduce crashes experienced by some users.
+- Added a way to disable or set a timeout for the connection status banner messages if they aren't needed or are causing a problem.
+
+# Version 1.4.0.1
+- Added push notification support
 
 # Version 1.3.7.1
-- Fixed iPhone X issues
+- Fixing iPhone X issues.
 
 # Version 1.3.6.1
 - An update to improve the security of the client's connection to Chat. We recommend that all customers upgrade to this version.

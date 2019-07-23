@@ -45,7 +45,7 @@
 
     // remember to switch off debug logging before app store submission!
     [ZDCLog enable:YES];
-    [ZDCLog setLogLevel:ZDCLogLevelInfo];
+    [ZDCLog setLogLevel:ZDCLogLevelWarn];
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
     // sample app boiler plate
@@ -53,6 +53,19 @@
 
     NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
 
+    [self setupRootViewController];
+    
+    // push notifications
+    [self requestPermissions];
+
+    // make key window
+    [self.window makeKeyAndVisible];
+
+    return YES;
+}
+
+- (void) setupRootViewController
+{
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor colorWithWhite:0.94f alpha:1.0f];
 
@@ -65,17 +78,7 @@
     // assign nav controller as root
     self.window.rootViewController = navController;
 
-    // push notifications
-    [self requestPermissions];
-
-    // make key window
-    [self.window makeKeyAndVisible];
-
-    // notification
-    [ZDCChat didReceiveRemoteNotification:launchOptions];
-    return YES;
 }
-
 
 - (void) styleApp
 {
@@ -137,7 +140,17 @@
 
 - (void) application:(UIApplication*)application didReceiveRemoteNotification:(NSDictionary*)userInfo
 {
-    [ZDCChat didReceiveRemoteNotification:userInfo];
+    [self.window makeKeyAndVisible];
+    [self setupRootViewController];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [ZDCChat didReceiveRemoteNotification:userInfo];
+    });
+}
+
+- (BOOL) application:(UIApplication *)application shouldRestoreApplicationState:(NSCoder *)coder
+{
+    return true;
 }
 
 
