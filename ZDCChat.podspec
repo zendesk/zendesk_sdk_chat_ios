@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
     s.name         = "ZDCChat"
-    s.version      = "1.4.0"
-    s.summary      = "Zopim SDK 1.4.0"
+    s.version      = "1.4.1"
+    s.summary      = "Zendesk Chat SDK 1.4.1"
     s.homepage     = "https://github.com/zendesk/zendesk_sdk_chat_ios"
     s.license      = {
     :type => 'Copyright',
@@ -31,7 +31,7 @@ Pod::Spec.new do |s|
         ss.frameworks = 'MobileCoreServices', 'SystemConfiguration', 'AVFoundation', 'AssetsLibrary'
         ss.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '$(inherited)', 'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES' }
         ss.resources = ["ZDCChat.bundle"]
-        ss.dependency 'ZDCChat/API' 
+        ss.dependency 'ZDCChat/API'
     end
 
     s.subspec 'Localization' do |ss|

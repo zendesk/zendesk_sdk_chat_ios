@@ -1,16 +1,21 @@
+
+# Version 1.4.1
+- Improved support for agent availability monitoring in the chat window. You can now enable a feature that will provide a more accurate real time reflection of agent availability. You can enable this feature by calling `enableAgentAvailabilityObserving` on `ZDCChat` and passing `true`/`YES`. We suggest disabling the overlay as this can improve the reliability of this feature (see [here](https://developer.zendesk.com/embeddables/docs/ios-chat-sdk/customization#hiding-the-chat-overlay)).
+- Provided a workaround for some triggers not firing when setting the department. If this issue is being experienced, you can call `updateDepartment` once the chat session is connected and pass the department.
+- Safer handling of notifications to reduce crashes experienced by some users.
+- Added a way to disable or set a timeout for the connection status banner messages if they aren't needed or are causing a problem. This can be achieved by setting `showsConnectionBar` or `connectionBarAutoCloseDuration` on `ZDCChat`.
+
 # Version 1.4.0
-- Add support for push notifications
-- Fixed layout issue with transparent UINavigationBar
-- Stabilized UITableView updates
+- Added Push Notification support.
 
 # Version 1.3.7.1
-- Fixed iPhone X issues
+- Fixing iPhone X issues.
 
 # Version 1.3.6.1
 - An update to improve the security of the client's connection to Chat. We recommend that all customers upgrade to this version.
 
 # Version 1.3.5.1
-- Fixing bug that would not show departments and not start the chat if agents’ status is ‘Away’.
+- Fixing bug that would not show departments and not start the chat if agent's status is ‘Away’.
 
 # Version 1.3.4.1
 - Fixing bug that would allow the chat to start when the departments are offline.
@@ -19,16 +24,16 @@
 - Fixing bug to allow special characters to be sent.
 
 # Version 1.3.2.1
-- Fixing a lag issue that happens when writing the chat message on some devices
-- Adding `addNote` method to `ZDCVisitorInfo` 
-- Adding `setNote` and `appendNote` to `ZDCChatAPI` 
+- Fixing a lag issue that happens when writing the chat message on some devices.
+- Adding `addNote` method to `ZDCVisitorInfo`.
+- Adding `setNote` and `appendNote` to `ZDCChatAPI`.
 
 # Version 1.3.1.1
-- Fixing issues occurring on iOS 10 
-- Fixing an issue that causes the chat view controller to pop the active controller twice
+- Fixing issues occurring on iOS 10.
+- Fixing an issue that causes the chat view controller to pop the active controller twice.
 
 # Version 1.3.0.2
-Fixing an issue with library not containing bitcode support for some slices.
+- Fixing an issue with library not containing bitcode support for some slices.
 
 # Version 1.3.0.1
 
@@ -67,7 +72,7 @@ Fixing an issue with library not containing bitcode support for some slices.
 - ZDUToastView.h
 - ZDUUtil.h
 
-### Items Moved from ZDCChat to ZDCChatAPI: 
+### Items Moved from ZDCChat to ZDCChatAPI:
 - ZDCChatAgent.h
 - ZDCChatAttachment.h
 - ZDCChatEvent.h

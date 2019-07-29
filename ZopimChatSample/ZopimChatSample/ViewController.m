@@ -32,13 +32,22 @@ static const float ZDC_CONTENT_HEIGHT = 410.0f;
 #define ZDC_BTN_BORDER [UIColor colorWithWhite:0.8470f alpha:1.0f]
 
 
-@implementation ViewController
+@interface ViewController ()
 
+@property (nonatomic, strong) UISwitch *enableAgentAvailabilityObservingSwitch;
+@property (nonatomic, strong) NSString *department;
+
+@end
+
+@implementation ViewController
 
 - (void) viewDidLoad
 {
     [super viewDidLoad];
-
+    
+    // Set the name of the department.
+    self.department = @"";
+    
     //////////////////////////////////////////////
     // sample app boilerplate
     //////////////////////////////////////////////
@@ -49,7 +58,7 @@ static const float ZDC_CONTENT_HEIGHT = 410.0f;
     _scrollView = [[UIScrollView alloc] initWithFrame:self.view.frame];
     _scrollView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
     [self.contentView addSubview:_scrollView];
-
+    
     CGRect buttonFrame = CGRectMake(ZDC_BUTTON_MARGIN, ZDC_BUTTON_MARGIN,
                                     floorf(self.view.frame.size.width - 2 * ZDC_BUTTON_MARGIN), ZDC_BUTTON_HEIGHT);
     UIButton *button = [self buildButtonWithFrame:buttonFrame andTitle:@"Chat (all fields optional)"];
@@ -66,18 +75,34 @@ static const float ZDC_CONTENT_HEIGHT = 410.0f;
     
     buttonFrame = CGRectMake(ZDC_BUTTON_MARGIN, floorf(buttonFrame.origin.y + ZDC_BUTTON_SPACING),
                              floorf(self.view.frame.size.width - 2 * ZDC_BUTTON_MARGIN), ZDC_BUTTON_HEIGHT);
-    button = [self buildButtonWithFrame:buttonFrame andTitle:@"Chat (no pre-chat form)"];
+    button = [self buildButtonWithFrame:buttonFrame andTitle:@"Chat (no pre-chat form) no connection bar"];
     button.accessibilityIdentifier = @"PushedChatNoPreChatForm";
     [button addTarget:self action:@selector(noPreChatForm) forControlEvents:(UIControlEventTouchUpInside)];
     [_scrollView addSubview:button];
     
     buttonFrame = CGRectMake(ZDC_BUTTON_MARGIN, floorf(buttonFrame.origin.y + ZDC_BUTTON_SPACING),
                              floorf(self.view.frame.size.width - 2 * ZDC_BUTTON_MARGIN), ZDC_BUTTON_HEIGHT);
-    button = [self buildButtonWithFrame:buttonFrame andTitle:@"Chat (pre-set data)"];
+    button = [self buildButtonWithFrame:buttonFrame andTitle:@"Chat (pre-set data) connection bar(1 second)"];
     button.accessibilityIdentifier = @"PushedChatPreSetData";
     [button addTarget:self action:@selector(presetData) forControlEvents:(UIControlEventTouchUpInside)];
     [_scrollView addSubview:button];
+    
+    buttonFrame = CGRectMake(ZDC_BUTTON_MARGIN, floorf(buttonFrame.origin.y + ZDC_BUTTON_SPACING),
+                             floorf(self.view.frame.size.width - 2 * ZDC_BUTTON_MARGIN), ZDC_BUTTON_HEIGHT);
+    button = [self buildButtonWithFrame:buttonFrame andTitle:@"Chat (pre-set data) connection bar + user"];
+    button.accessibilityIdentifier = @"PushedChatPreSetDataTwo";
+    [button addTarget:self action:@selector(presetDataTwo) forControlEvents:(UIControlEventTouchUpInside)];
+    [_scrollView addSubview:button];
 
+    
+    // End chat
+    buttonFrame = CGRectMake(ZDC_BUTTON_MARGIN, floorf(buttonFrame.origin.y + ZDC_BUTTON_SPACING),
+                             floorf(self.view.frame.size.width - 2 * ZDC_BUTTON_MARGIN), ZDC_BUTTON_HEIGHT);
+    button = [self buildButtonWithFrame:buttonFrame andTitle:@"End current chat"];
+    button.accessibilityIdentifier = @"End current chat";
+    [button addTarget:self action:@selector(endChat) forControlEvents:(UIControlEventTouchUpInside)];
+    [_scrollView addSubview:button];
+    
     buttonFrame = CGRectMake(ZDC_BUTTON_MARGIN, floorf(buttonFrame.origin.y + ZDC_BUTTON_SPACING),
                              floorf(self.view.frame.size.width - 2 * ZDC_BUTTON_MARGIN), ZDC_BUTTON_HEIGHT);
     button = [self buildButtonWithFrame:buttonFrame andTitle:@"Open modal view controller"];
@@ -85,7 +110,7 @@ static const float ZDC_CONTENT_HEIGHT = 410.0f;
     button.backgroundColor = ZDC_VC_BTN_BACKGROUND;
     [button addTarget:self action:@selector(openModalViewController) forControlEvents:(UIControlEventTouchUpInside)];
     [_scrollView addSubview:button];
-
+    
     buttonFrame = CGRectMake(ZDC_BUTTON_MARGIN, floorf(buttonFrame.origin.y + ZDC_BUTTON_SPACING),
                              floorf(self.view.frame.size.width - 2 * ZDC_BUTTON_MARGIN), ZDC_BUTTON_HEIGHT);
     button = [self buildButtonWithFrame:buttonFrame andTitle:@"Push view controller"];
@@ -93,7 +118,7 @@ static const float ZDC_CONTENT_HEIGHT = 410.0f;
     button.backgroundColor = ZDC_VC_BTN_BACKGROUND;
     [button addTarget:self action:@selector(pushViewController) forControlEvents:(UIControlEventTouchUpInside)];
     [_scrollView addSubview:button];
-
+    
     buttonFrame = CGRectMake(ZDC_BUTTON_MARGIN, floorf(buttonFrame.origin.y + ZDC_BUTTON_SPACING),
                              floorf(self.view.frame.size.width - 2 * ZDC_BUTTON_MARGIN), ZDC_BUTTON_HEIGHT);
     button = [self buildButtonWithFrame:buttonFrame andTitle:@"Override account key"];
@@ -101,8 +126,32 @@ static const float ZDC_CONTENT_HEIGHT = 410.0f;
     button.backgroundColor = ZDC_VC_BTN_BACKGROUND;
     [button addTarget:self action:@selector(updateAccountKey) forControlEvents:(UIControlEventTouchUpInside)];
     [_scrollView addSubview:button];
+    
+    CGRect switchFrame = CGRectMake(ZDC_BUTTON_MARGIN, floorf(buttonFrame.origin.y + ZDC_BUTTON_SPACING),
+                                    floorf(self.view.frame.size.width - 2 * ZDC_BUTTON_MARGIN), ZDC_BUTTON_HEIGHT);
+    _enableAgentAvailabilityObservingSwitch = [[UISwitch alloc] initWithFrame:switchFrame];
+    _enableAgentAvailabilityObservingSwitch.on = YES;
+    [_scrollView addSubview:_enableAgentAvailabilityObservingSwitch];
+    CGRect switchLabelFrame = CGRectMake(_enableAgentAvailabilityObservingSwitch.frame.origin.x + _enableAgentAvailabilityObservingSwitch.frame.size.width + 15,
+                                         _enableAgentAvailabilityObservingSwitch.frame.origin.y + 7,
+                                         250,
+                                         15);
+    UILabel *switchLabel = [self buildLabelWithFrame:switchLabelFrame andText:@"enableAgentAvailabilityObserving"];
+    [_scrollView addSubview:switchLabel];
+    
+    UILabel *label;
+    CGRect labelFrame;
+    
+    labelFrame = CGRectMake(ZDC_BUTTON_MARGIN, floorf(switchFrame.origin.y + ZDC_BUTTON_SPACING),
+                            floorf(self.view.frame.size.width - 2 * ZDC_BUTTON_MARGIN), ZDC_BUTTON_HEIGHT);
+    label = [self buildLabelWithFrame:labelFrame andText:[NSString stringWithFormat:@"ZDCChat %@", ZDC_CHAT_SDK_VERSION]];
+    [_scrollView addSubview:label];
+    
+    labelFrame = CGRectMake(ZDC_BUTTON_MARGIN, floorf(labelFrame.origin.y + 25),
+                            floorf(self.view.frame.size.width - 2 * ZDC_BUTTON_MARGIN), ZDC_BUTTON_HEIGHT);
+    label = [self buildLabelWithFrame:labelFrame andText:[NSString stringWithFormat:@"ZDCChatAPI %@", ZDC_CHAT_API_SDK_VERSION]];
+    [_scrollView addSubview:label];
 }
-
 
 - (void) viewDidLayoutSubviews
 {
@@ -111,9 +160,35 @@ static const float ZDC_CONTENT_HEIGHT = 410.0f;
     _scrollView.contentInset = UIEdgeInsetsMake([self topViewOffset], 0.0f, [self bottomViewOffset], 0.0f);
 }
 
+- (BOOL) agentAvailabilityObservingEnabled
+{
+    return [[self enableAgentAvailabilityObservingSwitch] isOn];
+}
+
+// This is required to fix MSDK-4046
+- (void)connectionEvent
+{
+    if ([[ZDCChatAPI instance] connectionStatus] == ZDCConnectionStatusConnected) {
+        if (self.department != nil) {
+            [[ZDCChatAPI instance] updateDepartment:self.department];
+        }
+        [[ZDCChatAPI instance] removeObserverForConnectionEvents:self];
+    }
+}
+
+- (void) endChat {
+    [ZDCChat endChat];
+}
+
+- (void)observeConnectionEvents
+{
+    [[ZDCChatAPI instance] addObserver:self forConnectionEvents:@selector(connectionEvent)];
+}
 
 - (void) allPreChatFieldsOptional
 {
+    [[ZDCChat instance] enableAgentAvailabilityObserving: [self agentAvailabilityObservingEnabled]];
+    
     // track the event
     [[ZDCChat instance].api trackEvent:@"Chat button pressed: (all fields optional)"];
     
@@ -124,15 +199,18 @@ static const float ZDC_CONTENT_HEIGHT = 410.0f;
         config.preChatDataRequirements.phone = ZDCPreChatDataOptionalEditable;
         config.preChatDataRequirements.department = ZDCPreChatDataOptionalEditable;
         config.preChatDataRequirements.message = ZDCPreChatDataOptionalEditable;
+        // This is required to fix MSDK-4046
+        [self observeConnectionEvents];
     }];
 }
 
-
 - (void) allPreChatFieldsRequired
 {
+    [[ZDCChat instance] enableAgentAvailabilityObserving: [self agentAvailabilityObservingEnabled]];
+    
     // track the event
     [[ZDCChat instance].api trackEvent:@"Chat button pressed: (all fields required)"];
-
+    
     // Start a chat pushed on to the current navigation controller
     // with session config making all pre-chat fields required
     [ZDCChat startChatIn:self.navigationController withConfig:^(ZDCConfig *config) {
@@ -141,15 +219,18 @@ static const float ZDC_CONTENT_HEIGHT = 410.0f;
         config.preChatDataRequirements.phone = ZDCPreChatDataRequiredEditable;
         config.preChatDataRequirements.department = ZDCPreChatDataRequiredEditable;
         config.preChatDataRequirements.message = ZDCPreChatDataRequired;
+        // This is required to fix MSDK-4046
+        [self observeConnectionEvents];
     }];
 }
 
-
 - (void) noPreChatForm
 {
+    [[ZDCChat instance] enableAgentAvailabilityObserving: [self agentAvailabilityObservingEnabled]];
+    
     // track the event
-    [[ZDCChat instance].api trackEvent:@"Chat button pressed: (no pre-chat form)"];
-
+    [[ZDCChat instance].api trackEvent:@"Chat button pressed: (no pre-chat form) - doesnt show connection bar"];
+  
     // start a chat pushed on to the current navigation controller
     // with session config setting all pre-chat fields as not required
     [ZDCChat startChatIn:self.navigationController withConfig:^(ZDCConfig *config) {
@@ -159,18 +240,56 @@ static const float ZDC_CONTENT_HEIGHT = 410.0f;
         config.preChatDataRequirements.department = ZDCPreChatDataNotRequired;
         config.preChatDataRequirements.message = ZDCPreChatDataNotRequired;
         config.emailTranscriptAction = ZDCEmailTranscriptActionNeverSend;
+        config.showsConnectionBar = NO;
+        // This is required to fix MSDK-4046
+        [self observeConnectionEvents];
     }];
 }
 
-
 - (void) presetData
 {
+    [[ZDCChat instance] enableAgentAvailabilityObserving: [self agentAvailabilityObservingEnabled]];
+    
     // track the event
-    [[ZDCChat instance].api trackEvent:@"Chat button pressed: (pre-set data)"];
+    [[ZDCChat instance].api trackEvent:@"Chat button pressed: (pre-set data) - shows connection bar for 1 second"];
 
     // before starting the chat set the visitor data
     [ZDCChat updateVisitor:^(ZDCVisitorInfo *visitor) {
+        
+        visitor.phone = [NSString stringWithFormat:@"%lu", (long)[[NSDate date] timeIntervalSince1970]];
+        visitor.name = [NSString stringWithFormat:@"Preconfig %lu", (long)[[NSDate date] timeIntervalSince1970]];
+        visitor.email = [NSString stringWithFormat:@"chattest+%lu@test.com", (long)[[NSDate date] timeIntervalSince1970]];
+        [visitor addNote:@"This is another note"];
+        // This is required to fix MSDK-4046
+        [self observeConnectionEvents];
+    }];
+    
+    // start a chat pushed on to the current navigation controller
+    // with a session config requiring all pre-chat fields and setting tags and department
+    [ZDCChat startChatIn:self.navigationController withConfig:^(ZDCConfig *config) {
+        config.preChatDataRequirements.name = ZDCPreChatDataRequired;
+        config.preChatDataRequirements.email = ZDCPreChatDataRequired;
+        config.preChatDataRequirements.phone = ZDCPreChatDataRequired;
+        config.preChatDataRequirements.department = ZDCPreChatDataRequired;
+        config.preChatDataRequirements.message = ZDCPreChatDataRequired;
+        config.showsConnectionBar = YES;
+        config.connectionBarAutoCloseDuration = 1.0f;
+        // This is required to fix MSDK-4046
+        [self observeConnectionEvents];
 
+      //TODO
+//        sessionConfig.department = @"The date";
+//        sessionConfig.tags = @[@"tag1", @"tag2"];
+    }];
+}
+
+- (void) presetDataTwo
+{
+    // track the event
+    [[ZDCChat instance].api trackEvent:@"Chat button pressed: (pre-set data) - shows connection bar - user touch required"];
+
+    // before starting the chat set the visitor data
+    [ZDCChat updateVisitor:^(ZDCVisitorInfo *visitor) {
         visitor.phone = [NSString stringWithFormat:@"%lu", (long)[[NSDate date] timeIntervalSince1970]];
         visitor.name = [NSString stringWithFormat:@"Preconfig %lu", (long)[[NSDate date] timeIntervalSince1970]];
         visitor.email = [NSString stringWithFormat:@"chattest+%lu@test.com", (long)[[NSDate date] timeIntervalSince1970]];
@@ -185,19 +304,22 @@ static const float ZDC_CONTENT_HEIGHT = 410.0f;
         config.preChatDataRequirements.phone = ZDCPreChatDataRequired;
         config.preChatDataRequirements.department = ZDCPreChatDataRequired;
         config.preChatDataRequirements.message = ZDCPreChatDataRequired;
+        config.showsConnectionBar = YES;
+        config.connectionBarAutoCloseDuration = 0.0f;
+        // This is required to fix MSDK-4046
+        [self observeConnectionEvents];
 
-      //TODO
-//        sessionConfig.department = @"The date";
-//        sessionConfig.tags = @[@"tag1", @"tag2"];
+        //TODO
+        //        sessionConfig.department = @"The date";
+        //        sessionConfig.tags = @[@"tag1", @"tag2"];
     }];
 }
-
 
 - (void) openModalViewController
 {
     // track the event
     [[ZDCChat instance].api trackEvent:@"Modal View Controller opened"];
-
+    
     // simple app navigation simulation
     ViewController *vc = [[ViewController alloc] initWithNibName:nil bundle:nil];
     vc.modal = YES;
@@ -210,33 +332,43 @@ static const float ZDC_CONTENT_HEIGHT = 410.0f;
                                                            target:self
                                                            action:@selector(dismiss)];
     vc.navigationItem.rightBarButtonItem = bbi;
-
+    
     [self presentViewController:navController animated:YES completion:^{ }];
 }
-
 
 - (void) pushViewController
 {
     // track the event
     [[ZDCChat instance].api trackEvent:@"View Controller pushed"];
-
+    
     // simple app navigation simulation
     ViewController *vc = [[ViewController alloc] initWithNibName:nil bundle:nil];
     vc.nested = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-
 - (void) dismiss
 {
     [self dismissViewControllerAnimated:YES completion:^{ }];
 }
 
+- (UILabel*) buildLabelWithFrame:(CGRect)frame andText:(NSString*)text
+{
+    // label helper
+    UILabel *label = [[UILabel alloc] initWithFrame:frame];
+    //    label.backgroundColor = [UIColor whiteColor];
+    label.font = [UIFont systemFontOfSize:14];
+    label.text = text;
+    label.textColor = [UIColor blackColor];
+    label.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+    return label;
+}
 
 - (UIButton*) buildButtonWithFrame:(CGRect)frame andTitle:(NSString*)title
 {
     // button helper
-    UIButton *button = [[UIButton alloc] initWithFrame:frame];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+    button.frame = frame;
     button.backgroundColor = [UIColor whiteColor];
     button.layer.borderColor = ZDC_BTN_BORDER.CGColor;
     button.layer.borderWidth = ZDC_BUTTON_BORDER_WIDTH;
@@ -252,10 +384,6 @@ static const float ZDC_CONTENT_HEIGHT = 410.0f;
     return button;
 }
 
-
-#pragma mark account key
-
-
 - (void) updateAccountKey
 {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Update account key"
@@ -263,7 +391,7 @@ static const float ZDC_CONTENT_HEIGHT = 410.0f;
                                                    delegate:self
                                           cancelButtonTitle:@"Cancel"
                                           otherButtonTitles:@"Update", nil];
-
+    
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
     UITextField *textField = [alert textFieldAtIndex:0];
     textField.placeholder = @"Account key";
@@ -271,29 +399,27 @@ static const float ZDC_CONTENT_HEIGHT = 410.0f;
     [alert show];
 }
 
-
 - (void) alertView:(UIAlertView*)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     switch (buttonIndex) {
-
+            
         case 0: {
-
+            
             // cancelled
             break;
         }
         default: {
-
+            
             UITextField *textField = [alertView textFieldAtIndex:0];
-
+            
             if (textField.text.length > 0) {
-
-              [ZDCChat initializeWithAccountKey:textField.text];
+                
+                [ZDCChat initializeWithAccountKey:textField.text];
             }
             break;
         }
     }
 }
-
 
 @end
 
