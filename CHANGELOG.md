@@ -1,3 +1,5 @@
+# Version 1.4.2
+- Fixed some iOS 13 issues.
 
 # Version 1.4.1
 - Improved support for agent availability monitoring in the chat window. You can now enable a feature that will provide a more accurate real time reflection of agent availability. You can enable this feature by calling `enableAgentAvailabilityObserving` on `ZDCChat` and passing `true`/`YES`. We suggest disabling the overlay as this can improve the reliability of this feature (see [here](https://developer.zendesk.com/embeddables/docs/ios-chat-sdk/customization#hiding-the-chat-overlay)).
