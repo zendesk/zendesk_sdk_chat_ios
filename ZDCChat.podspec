@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
     s.name         = "ZDCChat"
-    s.version      = "1.4.1"
-    s.summary      = "Zendesk Chat SDK 1.4.1"
+    s.version      = "1.4.2"
+    s.summary      = "Zendesk Chat SDK 1.4.2"
     s.homepage     = "https://github.com/zendesk/zendesk_sdk_chat_ios"
     s.license      = {
     :type => 'Copyright',
@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
     }
     s.author       = 'Zendesk'
     s.source       = { :git => "https://github.com/zendesk/zendesk_sdk_chat_ios.git", :tag => s.version.to_s }
-    s.platform     = :ios, '9.0'
+    s.platform     = :ios, '9.3'
     s.requires_arc = true
 
     s.default_subspecs = 'UI', 'API', 'Localization'

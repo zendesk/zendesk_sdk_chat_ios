@@ -46,7 +46,6 @@
     // remember to switch off debug logging before app store submission!
     [ZDCLog enable:YES];
     [ZDCLog setLogLevel:ZDCLogLevelWarn];
-    [[[ZDCChat instance] overlay] setEnabled:NO];
     
 
     ////////////////////////////////////////////////////////////////////////////////////////////////

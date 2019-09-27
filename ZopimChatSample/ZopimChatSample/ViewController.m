@@ -153,21 +153,18 @@ static const float ZDC_CONTENT_HEIGHT = 410.0f;
     [_scrollView addSubview:label];
 }
 
-- (void) viewDidLayoutSubviews
-{
+- (void) viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     _scrollView.contentSize = CGSizeMake(self.contentView.frame.size.width, ZDC_CONTENT_HEIGHT);
     _scrollView.contentInset = UIEdgeInsetsMake([self topViewOffset], 0.0f, [self bottomViewOffset], 0.0f);
 }
 
-- (BOOL) agentAvailabilityObservingEnabled
-{
+- (BOOL) agentAvailabilityObservingEnabled {
     return [[self enableAgentAvailabilityObservingSwitch] isOn];
 }
 
 // This is required to fix MSDK-4046
-- (void)connectionEvent
-{
+- (void)connectionEvent {
     if ([[ZDCChatAPI instance] connectionStatus] == ZDCConnectionStatusConnected) {
         if (self.department != nil) {
             [[ZDCChatAPI instance] updateDepartment:self.department];
@@ -193,7 +190,7 @@ static const float ZDC_CONTENT_HEIGHT = 410.0f;
     [[ZDCChat instance].api trackEvent:@"Chat button pressed: (all fields optional)"];
     
     // start a chat in a new modal
-    [ZDCChat startChatIn:self.navigationController withConfig:^(ZDCConfig *config) {
+    [ZDCChat startChat:^(ZDCConfig *config) {
         config.preChatDataRequirements.name = ZDCPreChatDataOptionalEditable;
         config.preChatDataRequirements.email = ZDCPreChatDataOptionalEditable;
         config.preChatDataRequirements.phone = ZDCPreChatDataOptionalEditable;
@@ -233,7 +230,7 @@ static const float ZDC_CONTENT_HEIGHT = 410.0f;
   
     // start a chat pushed on to the current navigation controller
     // with session config setting all pre-chat fields as not required
-    [ZDCChat startChatIn:self.navigationController withConfig:^(ZDCConfig *config) {
+    [ZDCChat startChat:^(ZDCConfig *config) {
         config.preChatDataRequirements.name = ZDCPreChatDataNotRequired;
         config.preChatDataRequirements.email = ZDCPreChatDataNotRequired;
         config.preChatDataRequirements.phone = ZDCPreChatDataNotRequired;
