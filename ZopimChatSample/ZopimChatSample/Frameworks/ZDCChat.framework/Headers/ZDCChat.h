@@ -124,7 +124,7 @@ typedef void (^ZDCConfigBlock) (ZDCConfig *config);
  * Initializes the chat session
  * @param accountKey accountKey used
  */
-+ (void)initializeWithAccountKey:(NSString*)accountKey;
++ (void)initializeWithAccountKey:(NSString *)accountKey;
 
 /**
  * Update the visitor data.
@@ -145,7 +145,7 @@ typedef void (^ZDCConfigBlock) (ZDCConfig *config);
  * @param navController the navigation controller in which to push the chat UI
  * @param configOverride block in which the session config is updated as desired for this session, leave nil to use the default config
  */
-+ (void)startChatIn:(UINavigationController*)navController withConfig:(ZDCConfigBlock)configOverride;
++ (void)startChatIn:(UINavigationController *)navController withConfig:(ZDCConfigBlock)configOverride;
 
 /**
  * End the chat session and dismiss the UI.
@@ -162,21 +162,21 @@ typedef void (^ZDCConfigBlock) (ZDCConfig *config);
  *
  * @param token the push token received from the didRegisterForRemoteNotificationsWithDeviceToken response
  */
-+ (void) setPushToken:(NSData*)token;
++ (void)setPushToken:(NSData *)token;
 
 /**
  * If a user revokes push permissions you can remove the push token from the session with this method.
  */
-+ (void) clearPushToken;
++ (void)clearPushToken;
 
 /**
  * Push notifications which are received in the app delegate didReceiveRemoteNotification method should be passed to
  * the SDK via this method.
  */
-+ (void) didReceiveRemoteNotification:(NSDictionary*)userInfo;
++ (void)didReceiveRemoteNotification:(NSDictionary *)userInfo;
 
 /// Identifies whether a push notification payload belongs to Zendesk
-- (BOOL) isZendeskChatNotification:(NSDictionary*)userInfo;
++ (BOOL)isZendeskChatNotification:(NSDictionary *)userInfo;
 
 - (void)enableAgentAvailabilityObserving:(BOOL)enable;
 
