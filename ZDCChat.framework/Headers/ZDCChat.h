@@ -20,7 +20,7 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 
 // Chat API SDK Version
-#define ZDC_CHAT_SDK_VERSION @"1.4.2"
+#define ZDC_CHAT_SDK_VERSION @"1.4.3"
 
 #if MODULES_DISABLED
 #import <ZDCChatAPI/ZDCChatAPI.h>
@@ -175,10 +175,20 @@ typedef void (^ZDCConfigBlock) (ZDCConfig *config);
  */
 + (void)didReceiveRemoteNotification:(NSDictionary *)userInfo;
 
-/// Identifies whether a push notification payload belongs to Zendesk
+/**
+ * Identifies whether a push notification payload belongs to the Zendesk Chat SDK.
+*/
 + (BOOL)isZendeskChatNotification:(NSDictionary *)userInfo;
 
+/**
+ * When enabled, will provide a more accurate real time reflection of agent availability.
+*/
 - (void)enableAgentAvailabilityObserving:(BOOL)enable;
+
+/**
+ * Provides a way to override the style of presentation used when displaying a chat.
+*/
+@property (nonatomic, assign) UIModalPresentationStyle chatModalPresentationStyle;
 
 @end
 

@@ -22,7 +22,6 @@
 
 @implementation AppDelegate
 
-
 - (BOOL) application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions
 {
     [self styleApp];
@@ -47,6 +46,7 @@
     [ZDCLog enable:YES];
     [ZDCLog setLogLevel:ZDCLogLevelWarn];
     
+    [[ZDCChat instance].overlay setEnabled:NO];
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
     // sample app boiler plate

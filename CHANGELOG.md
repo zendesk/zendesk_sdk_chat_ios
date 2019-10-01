@@ -1,3 +1,7 @@
+# Version 1.4.3
+- Bug fixes.
+- You can now control the way the chat window gets displayed by setting `chatModalPresentationStyle`.
+
 # Version 1.4.2
 - Fixed some iOS 13 issues.
 
