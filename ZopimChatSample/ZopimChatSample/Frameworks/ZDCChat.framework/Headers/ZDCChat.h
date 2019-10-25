@@ -175,13 +175,7 @@ typedef void (^ZDCConfigBlock) (ZDCConfig *config);
  */
 + (void)didReceiveRemoteNotification:(NSDictionary *)userInfo;
 
-<<<<<<< HEAD
-/// Identifies whether a push notification payload belongs to Zendesk
-=======
-/**
- * Identifies whether a push notification payload belongs to the Zendesk Chat SDK.
-*/
->>>>>>> Release 1.4.3
+
 + (BOOL)isZendeskChatNotification:(NSDictionary *)userInfo;
 
 /**
