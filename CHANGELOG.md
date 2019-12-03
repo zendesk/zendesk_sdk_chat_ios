@@ -1,3 +1,8 @@
+# Version 1.4.4
+- Fixed some bugs that were causing keyboard layout issues on iOS 13.
+- Fixed an issue where the department would not be correctly set on chats after a previous timeout.
+- Fixed an issue that could stop users from leaving an offline message.
+
 # Version 1.4.3
 - Bug fixes.
 - You can now control the way the chat window gets displayed by setting `chatModalPresentationStyle`.

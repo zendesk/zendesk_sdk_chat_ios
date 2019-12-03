@@ -276,6 +276,8 @@ static ZDCEmailTranscriptAction emailTranscriptAction = ZDCEmailTranscriptAction
 
 - (void) presetDataTwo
 {
+    [[ZDCChat instance] enableAgentAvailabilityObserving: [self agentAvailabilityObservingEnabled]];
+    
     [[ZDCChat instance].api trackEvent:@"Chat button pressed: (pre-set data) - shows connection bar - user touch required"];
 
     // Before starting the chat set the visitor data

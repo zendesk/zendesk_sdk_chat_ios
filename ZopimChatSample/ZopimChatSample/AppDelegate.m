@@ -55,12 +55,10 @@
     NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
 
     [self setupRootViewController];
+    [self.window makeKeyAndVisible];
     
     // push notifications
     [self requestPermissions];
-
-    // make key window
-    [self.window makeKeyAndVisible];
 
     return YES;
 }
@@ -141,8 +139,8 @@
 
 - (void) application:(UIApplication*)application didReceiveRemoteNotification:(NSDictionary*)userInfo
 {
-    [self.window makeKeyAndVisible];
     [self setupRootViewController];
+    [self.window makeKeyAndVisible];
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [ZDCChat didReceiveRemoteNotification:userInfo];
