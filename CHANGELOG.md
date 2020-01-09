@@ -1,3 +1,9 @@
+# Version 1.4.5
+- Fixed a keyboard layout issue that occurred when the `isTranslucent` property of the `UINavigationBar` was set to false.
+- Fixed an issue where visitors couldn't leave a comment on a chat rating.
+- Fixed an issue where the agent attachment message cell would load indefinitely.
+- Addressed some memory leaks.
+
 # Version 1.4.4
 - Fixed some bugs that were causing keyboard layout issues on iOS 13.
 - Fixed an issue where the department would not be correctly set on chats after a previous timeout.
