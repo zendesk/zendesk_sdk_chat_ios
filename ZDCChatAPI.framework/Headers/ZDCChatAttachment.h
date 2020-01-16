@@ -43,7 +43,7 @@
 /**
  * Request download of this image, ignoreed if download is already in progress.
  */
-- (void) download:(void (^)(ZDCFileTransferStatus))completion;
+- (void) download;
 
 
 @end

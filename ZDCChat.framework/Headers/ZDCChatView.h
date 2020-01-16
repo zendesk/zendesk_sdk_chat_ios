@@ -71,8 +71,6 @@ extern NSString * const ZDC_CHATCELL_OFFLINE;
  */
 @property (nonatomic, strong) UIColor *chatBackgroundColor UI_APPEARANCE_SELECTOR;
 
-@property (nonatomic, assign) CGFloat keyboardHeight;
-
 
 /**
  * Create a new chat view.
@@ -111,9 +109,6 @@ extern NSString * const ZDC_CHATCELL_OFFLINE;
  */
 - (void) reload;
 
-- (void) keyboardWillShow:(CGFloat)keyboardHeight;
-- (void) keyboardDidShow:(CGFloat)keyboardHeight;
-- (void) keyboardWillHide:(CGFloat)keyboardHeight;
 
 @end
 

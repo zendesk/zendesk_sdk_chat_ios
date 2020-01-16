@@ -1,20 +1,5 @@
-# Version 1.4.5
-- Fixed a keyboard layout issue that occurred when the `isTranslucent` property of the `UINavigationBar` was set to false.
-- Fixed an issue where visitors couldn't leave a comment on a chat rating.
-- Fixed an issue where the agent attachment message cell would load indefinitely.
-- Addressed some memory leaks.
-
-# Version 1.4.4
-- Fixed some bugs that were causing keyboard layout issues on iOS 13.
-- Fixed an issue where the department would not be correctly set on chats after a previous timeout.
-- Fixed an issue that could stop users from leaving an offline message.
-
-# Version 1.4.3
-- Bug fixes.
-- You can now control the way the chat window gets displayed by setting `chatModalPresentationStyle`.
-
-# Version 1.4.2
-- Fixed some iOS 13 issues.
+# Version 1.4.1-ios13
+- Added a way to change how the chat window gets displayed by setting chatModalPresentationStyle.
 
 # Version 1.4.1
 - Improved support for agent availability monitoring in the chat window. You can now enable a feature that will provide a more accurate real time reflection of agent availability. You can enable this feature by calling `enableAgentAvailabilityObserving` on `ZDCChat` and passing `true`/`YES`. We suggest disabling the overlay as this can improve the reliability of this feature (see [here](https://developer.zendesk.com/embeddables/docs/ios-chat-sdk/customization#hiding-the-chat-overlay)).
