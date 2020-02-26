@@ -1,3 +1,7 @@
+# Version 1.4.6 
+- Fixed an issue affecting pre-chat forms, that would stop a visitor from starting a chat.
+- Fixed an issue that could stop some visitors from starting a chat, due to a side effect of keyboard registration events.
+
 # Version 1.4.5
 - Fixed a keyboard layout issue that occurred when the `isTranslucent` property of the `UINavigationBar` was set to false.
 - Fixed an issue where visitors couldn't leave a comment on a chat rating.
