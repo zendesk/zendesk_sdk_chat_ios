@@ -17,7 +17,7 @@
 #import <UIKit/UIKit.h>
 
 // Chat API SDK Version
-#define ZDC_CHAT_API_SDK_VERSION @"1.4.6"
+#define ZDC_CHAT_API_SDK_VERSION @"1.4.7"
 
 #import <SystemConfiguration/SystemConfiguration.h>
 
@@ -367,5 +367,11 @@
 
 - (void)addObserver:(id)target forDepartmentEvents:(SEL)selector;
 - (void)removeObserverForDepartmentEvents:(id)target;
+
+@end
+
+@interface ZDCChatAPI (UserManagement)
+
+- (void)resetIdentity;
 
 @end

@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
     s.name         = "ZDCChat"
-    s.version      = "1.4.6"
-    s.summary      = "Zendesk Chat SDK 1.4.6"
+    s.version      = "1.4.7"
+    s.summary      = "Zendesk Chat SDK 1.4.7"
     s.homepage     = "https://github.com/zendesk/zendesk_sdk_chat_ios"
     s.license      = {
     :type => 'Copyright',

@@ -63,5 +63,6 @@
 - (instancetype) initWithIO:(id<ZDCChatIO>)chatIO;
 
 
+- (void) resetVisitorInfo:(BOOL)includingCache;
 @end
 
