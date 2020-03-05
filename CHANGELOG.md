@@ -1,4 +1,7 @@
-# Version 1.4.6 
+# Version 1.4.7
+- Added a way to clear the identity of a visitor, effectively causing the SDK to treat them as new. Just call `resetIdentity` on `ZDCChat` when needed (for example, when a visitor logs out).
+
+# Version 1.4.6
 - Fixed an issue affecting pre-chat forms, that would stop a visitor from starting a chat.
 - Fixed an issue that could stop some visitors from starting a chat, due to a side effect of keyboard registration events.
 

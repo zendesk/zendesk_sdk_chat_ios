@@ -20,7 +20,7 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 
 // Chat API SDK Version
-#define ZDC_CHAT_SDK_VERSION @"1.4.6"
+#define ZDC_CHAT_SDK_VERSION @"1.4.7"
 
 #if MODULES_DISABLED
 #import <ZDCChatAPI/ZDCChatAPI.h>
@@ -151,6 +151,11 @@ typedef void (^ZDCConfigBlock) (ZDCConfig *config);
  * End the chat session and dismiss the UI.
  */
 + (void)endChat;
+
+/**
+ * Resets the current user identity and clears the user data from local cache
+ */
++ (void)resetIdentity;
 
 /**
  * Minise the chat window.
