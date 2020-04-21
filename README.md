@@ -1,3 +1,6 @@
+:warning: This repository has been _*deprecated*_, please go to [here](https://github.com/zendesk/chat_sdk_ios) for the Zendesk Chat SDK :warning:
+
+
 :warning: *Use of this software is subject to important terms and conditions as set forth in the License file* :warning:
 
 # Zendesk Chat SDK for iOS 1.4.7

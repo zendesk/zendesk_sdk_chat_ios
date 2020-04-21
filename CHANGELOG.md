@@ -1,3 +1,6 @@
+# Version 2
+- Rewrite of the ChatSDK. See the documentation [here](https://developer.zendesk.com/embeddables/docs/chat-sdk-v-2-for-ios/introduction).
+
 # Version 1.4.7
 - Added a way to clear the identity of a visitor, effectively causing the SDK to treat them as new. Just call `resetIdentity` on `ZDCChat` when needed (for example, when a visitor logs out).
 
