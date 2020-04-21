@@ -1,3 +1,6 @@
+:warning:  There is a new version of the Zendesk Chat SDK, available [here](https://github.com/zendesk/chat_sdk_ios). :warning:
+
+
 :warning: *Use of this software is subject to important terms and conditions as set forth in the License file* :warning:
 
 # Zendesk Chat SDK for iOS 1.4.7
